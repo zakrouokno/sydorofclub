@@ -367,36 +367,41 @@ footer { padding: 50px 20px; background: #000; border-top: 1px solid #D27D46; }
     letter-spacing: 2px;
 }
 @media (max-width: 768px) {
-    /* Уменьшаем логотип, чтобы он влез в одну строку с меню */
-    .logo {
-        font-size: 1.5rem !important;
-    }
-    
-    .logo-icon {
-        width: 30px !important;
-        height: 30px !important;
+    /* Фиксируем шапку, чтобы она не разваливалась */
+    header {
+        padding: 10px 5%;
+        flex-direction: column; /* Логотип сверху, меню снизу */
+        align-items: center;
     }
 
-    /* Навигация: делаем текст меньше и убираем лишние отступы */
+    /* Уменьшаем логотип SYDOROF еще сильнее */
+    .logo {
+        font-size: 1.2rem !important;
+        margin-bottom: 10px;
+    }
+
+    /* Делаем меню в виде аккуратных кнопок в ряд или в две строки */
     nav ul {
         display: flex;
-        gap: 10px !important;
-        padding: 0;
+        flex-wrap: wrap; /* Если не влезает в ряд, перенесет на второй */
+        justify-content: center;
+        gap: 8px !important;
     }
 
     nav ul li a {
-        font-size: 0.8rem !important;
-        letter-spacing: 1px;
+        font-size: 0.75rem !important;
+        padding: 5px 10px;
+        background: rgba(210, 125, 70, 0.1); /* Легкий фон для кнопок */
+        border-radius: 4px;
+        white-space: nowrap; /* Запрещаем перенос текста внутри кнопки */
     }
 
-    /* Уменьшаем главный заголовок, чтобы он не перекрывал фото */
-    .hero-content h1 {
-        font-size: 2rem !important;
-        line-height: 1.2;
-    }
-
-    /* Поднимаем кнопку, чтобы она была видна сразу */
+    /* Главный экран: опускаем текст, чтобы он не лез на шапку */
     .hero-content {
-        padding-top: 100px;
+        padding-top: 140px !important;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem !important;
     }
 }
