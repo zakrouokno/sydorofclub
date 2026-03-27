@@ -136,42 +136,80 @@
         </div>
     </div>
 </footer>
+<button class="sydorov-btn-minimal" onclick="openBooking()">
+    <i class="fas fa-scissors"></i> <span>ЗАПИСАТЬСЯ</span>
+</button>
 
-<footer class="developer-footer">
-    <div class="dev-content">
-        <p>Created by <a href="https://github.com/zakrouokno" target="_blank">github/zakrouokno</a> &copy; 2026</p>
-    </div>
-</footer>
+<style>
+    .sydorov-btn-minimal {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: transparent; /* Полностью прозрачная внутри */
+        color: #D27D46; /* Фирменный цвет текста и иконки */
+        padding: 12px 22px;
+        border: 2px solid #D27D46; /* Тонкая рамка цвета лого */
+        border-radius: 4px; /* Прямоугольная, с легким скруглением */
+        cursor: pointer;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px; /* Чуть шире, для стиля */
+        font-size: 14px;
+        transition: all 0.4s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Глубокая тень для объема */
+        border: none;
+    }
 
-<div id="teamModal" class="modal">
-    <div class="modal-content">
-        <span class="close-button" onclick="closeModal()">&times;</span>
-        <h2 class="modal-title">Наши Профи</h2>
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="member-photo-frame"><img src="barber1.jpg" alt="Мастер"></div>
-                <h4>Иван Гамоюнов</h4>
-                <p class="role">Топ-барбер</p>
-                <p class="bio">7 лет в деле. Специалист по классике.</p>
-            </div>
-            <div class="team-card">
-                <div class="member-photo-frame"><img src="barber2.jpg" alt="Мастер"></div>
-                <h4>Дмитрий Ахмедов</h4>
-                <p class="role">Стилист-фейдер</p>
-                <p class="bio">Мастер современных фейдов.</p>
-            </div>
-            <div class="team-card">
-                <div class="member-photo-frame"><img src="barber3.jpg" alt="Мастер"></div>
-                <h4>Александр Белый</h4>
-                <p class="role">Мастер бороды</p>
-                <p class="bio">Идеальная форма и контуры.</p>
-            </div>
-        </div>
+    /* Эффект при наведении - заливка цветом */
+    .sydorov-btn-minimal:hover {
+        background: #D27D46;
+        color: #fff;
+        box-shadow: 0 6px 20px rgba(210, 125, 70, 0.4);
+    }
+
+    /* Анимация мигания (пульсации) цвета лого */
+    .sydorov-btn-minimal::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 4px;
+        box-shadow: 0 0 0 rgba(210, 125, 70, 0.6);
+        animation: sydorov-pulse 2s infinite;
+        z-index: -1; /* Чтобы не перекрывала текст */
+    }
+
+    @keyframes sydorov-pulse {
+        0% { box-shadow: 0 0 0 0 rgba(210, 125, 70, 0.6); }
+        70% { box-shadow: 0 0 0 15px rgba(210, 125, 70, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(210, 125, 70, 0); }
+    }
+</style>
+
+<div id="bookingModal" class="modal" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);">
+    <div class="modal-content" style="background: #1a1a1a; margin: 10% auto; padding: 30px; border: 1px solid #D27D46; width: 90%; max-width: 400px; text-align: center; position: relative;">
+        <span class="close-button" onclick="closeBooking()" style="position: absolute; right: 20px; top: 10px; color: #fff; font-size: 30px; cursor: pointer;">&times;</span>
+        <h2 style="font-family: 'Oswald', sans-serif; color: #D27D46; margin-bottom: 20px; letter-spacing: 2px;">ОНЛАЙН ЗАПИСЬ</h2>
+        
+        <form id="tgForm">
+            <input type="text" id="userName" placeholder="Твое имя" required 
+                   style="width: 100%; padding: 12px; margin-bottom: 10px; background: #000; border: 1px solid #333; color: #fff;">
+            <input type="tel" id="userPhone" placeholder="+380" required 
+                   style="width: 100%; padding: 12px; margin-bottom: 20px; background: #000; border: 1px solid #333; color: #fff;">
+            <button type="submit" style="width: 100%; padding: 15px; background: #D27D46; color: #fff; border: none; cursor: pointer; font-family: 'Oswald'; font-weight: bold; letter-spacing: 1px;">ОТПРАВИТЬ ЗАЯВКУ</button>
+        </form>
     </div>
 </div>
 
 <script>
-    // Анимация появления
+    // 1. АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
     function reveal() {
         var reveals = document.querySelectorAll(".reveal");
         for (var i = 0; i < reveals.length; i++) {
@@ -183,15 +221,34 @@
     window.addEventListener("scroll", reveal);
     reveal();
 
-    // Функции окон
-    function openModal() {
+    // 2. МОБИЛЬНОЕ МЕНЮ
+    function toggleMenu() {
+        const nav = document.getElementById('mobileNav');
+        nav.classList.toggle('active');
+    }
+
+    // 3. УПРАВЛЕНИЕ ВСЕМИ ОКНАМИ (ОТКРЫТЬ/ЗАКРЫТЬ)
+    function openBooking() {
+        document.getElementById("bookingModal").style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeBooking() {
+        document.getElementById("bookingModal").style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    function openBarbers(e) {
+        if (e) e.preventDefault();
         document.getElementById("teamModal").style.display = "block";
         document.body.style.overflow = "hidden";
     }
+
     function closeModal() {
         document.getElementById("teamModal").style.display = "none";
         document.body.style.overflow = "auto";
     }
+
     function openService(title, desc, time, price) {
         document.getElementById("modalServiceTitle").innerText = title;
         document.getElementById("modalServiceDescription").innerText = desc;
@@ -200,64 +257,138 @@
         document.getElementById("serviceModal").style.display = "block";
         document.body.style.overflow = "hidden";
     }
+
     function closeServiceModal() {
         document.getElementById("serviceModal").style.display = "none";
         document.body.style.overflow = "auto";
     }
 
-    // Закрытие по клику вне окна
+    // 4. ОТПРАВКА В TELEGRAM
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('tgForm');
+        if (form) {
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                
+                const token = '8720463887:AAGLJduimu-XgIhZ0wLENnxI9hM33Mq0dZ0';
+                const chat_id = '7472418224';
+                const name = document.getElementById('userName').value;
+                const phone = document.getElementById('userPhone').value;
+                
+                const text = `🔔 Новая запись!\n👤 Имя: ${name}\n📞 Тел: ${phone}`;
+                const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}&parse_mode=html`;
+
+                fetch(url)
+                .then(res => {
+                    if (res.ok) {
+                        alert('Заявка отправлена! Мы скоро свяжемся.');
+                        closeBooking();
+                        form.reset();
+                    } else {
+                        alert('Ошибка отправки. Проверьте настройки бота.');
+                    }
+                })
+                .catch(() => alert('Техническая ошибка. Проверьте интернет.'));
+            };
+        }
+    });
+
+    // 5. ЗАКРЫТИЕ ПО КЛИКУ ВНЕ ОКНА
     window.onclick = function(event) {
-        if (event.target == document.getElementById("teamModal")) closeModal();
-        if (event.target == document.getElementById("serviceModal")) closeServiceModal();
+        const team = document.getElementById("teamModal");
+        const service = document.getElementById("serviceModal");
+        const booking = document.getElementById("bookingModal");
+        
+        if (event.target == team) closeModal();
+        if (event.target == service) closeServiceModal();
+        if (event.target == booking) closeBooking();
     }
 </script>
 <script>
-function toggleMenu() {
-    const nav = document.getElementById('mobileNav');
-    nav.classList.toggle('active');
-}
+    // Функции открытия и закрытия
+    window.openBooking = function() {
+        document.getElementById("bookingModal").style.display = "block";
+        document.body.style.overflow = "hidden";
+    };
+
+    window.closeBooking = function() {
+        document.getElementById("bookingModal").style.display = "none";
+        document.body.style.overflow = "auto";
+    };
+
+    // Отправка данных
+    document.getElementById('tgForm').onsubmit = function(e) {
+        e.preventDefault();
+        
+        const token = '8720463887:AAGLJduimu-XgIhZ0wLENnxI9hM33Mq0dZ0';
+        const chat_id = '7472418224';
+        const name = document.getElementById('userName').value;
+        const phone = document.getElementById('userPhone').value;
+        
+        const text = `🔔 Новая запись!\n👤 Имя: ${name}\n📞 Тел: ${phone}`;
+        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}`;
+
+        fetch(url)
+        .then(res => {
+            if(res.ok) {
+                alert('Заявка отправлена! Ожидайте звонка.');
+                window.closeBooking();
+                this.reset();
+            } else {
+                alert('Ошибка отправки.');
+            }
+        })
+        .catch(() => alert('Проверьте интернет-соединение.'));
+    };
+
+    // Закрытие при клике на фон
+    window.onclick = function(event) {
+        const modal = document.getElementById("bookingModal");
+        if (event.target == modal) window.closeBooking();
+    }
 </script>
-<script>
-function openBarbers(e) {
-    if (e) e.preventDefault(); // Останавливаем прыжок страницы
+}
     
-    var modal = document.getElementById("teamModal");
-    if (modal) {
-        modal.style.display = "block";
-        document.body.style.overflow = "hidden"; // Замирает задний фон
-        console.log("Окно мастеров открыто!"); // Это для проверки в консоли
-    } else {
-        alert("Ошибка: Элемент teamModal не найден в коде!");
-    }
-}
+    // --- ВСТАВЛЯЙ ОТСЮДА ---
+    
+    // Логика отправки формы в Telegram
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('tgForm');
+        if (form) {
+            form.onsubmit = function(e) {
+                e.preventDefault();
 
-function closeModal() {
-    document.getElementById("teamModal").style.display = "none";
-    document.body.style.overflow = "auto";
-}
+                const token = '8720463887:AAGLJduimu-XgIhZ0wLENnxI9hM33Mq0dZ0';
+                const chat_id = '7472418224';
+                const name = document.getElementById('userName').value;
+                const phone = document.getElementById('userPhone').value;
+
+                const text = `🔔 <b>Новая запись!</b>\n👤 Имя: ${name}\n📞 Тел: ${phone}`;
+                const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: chat_id,
+                        text: text,
+                        parse_mode: 'html'
+                    })
+                })
+                .then(res => {
+                    if (res.ok) {
+                        alert('Заявка отправлена! Мы скоро свяжемся с вами.');
+                        if (typeof closeBooking === "function") closeBooking();
+                        form.reset();
+                    } else {
+                        alert('Ошибка бота. Убедитесь, что вы нажали START в боте.');
+                    }
+                })
+                .catch(() => alert('Техническая ошибка. Проверьте интернет.'));
+            };
+        }
+    });
 </script>
-<div class="booking-btn" onclick="openBooking()">
-    <i class="fas fa-calendar-check"></i>
-    <span>Записаться</span>
-</div>
 
-<div id="bookingModal" class="modal">
-    <div class="modal-content" style="max-width: 400px; text-align: center;">
-        <span class="close-button" onclick="closeBooking()">&times;</span>
-        <h2 style="font-family: 'Oswald', sans-serif; color: #D27D46;">ЗАПИСЬ</h2>
-        <form id="tgForm" style="margin-top: 20px;">
-            <input type="text" id="userName" placeholder="Твое имя" required style="width: 100%; padding: 12px; margin-bottom: 10px; background: #1a1a1a; border: 1px solid #333; color: #fff;">
-            <input type="tel" id="userPhone" placeholder="+380" required style="width: 100%; padding: 12px; margin-bottom: 15px; background: #1a1a1a; border: 1px solid #333; color: #fff;">
-            <button type="submit" class="btn-cta" style="width: 100%; border: none; cursor: pointer;">ОТПРАВИТЬ</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    // Твои функции openBarbers, openBooking и т.д.
-</script>
-
-</body>
-</html>
 </body>
 </html>
