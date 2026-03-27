@@ -39,7 +39,7 @@
         <ul>
             <li><a href="#about">Про нас</a></li>
             <li><a href="#services">Услуги</a></li>
-            <li><a href="#barbers">Мастера</a></li>
+            <li><a href="javascript:void(0)" onclick="openBarbers(event)">Мастера</a></li>
             <li><a href="#contacts">Контакты</a></li>
         </ul>
     </nav>
@@ -217,5 +217,47 @@ function toggleMenu() {
     nav.classList.toggle('active');
 }
 </script>
+<script>
+function openBarbers(e) {
+    if (e) e.preventDefault(); // Останавливаем прыжок страницы
+    
+    var modal = document.getElementById("teamModal");
+    if (modal) {
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // Замирает задний фон
+        console.log("Окно мастеров открыто!"); // Это для проверки в консоли
+    } else {
+        alert("Ошибка: Элемент teamModal не найден в коде!");
+    }
+}
+
+function closeModal() {
+    document.getElementById("teamModal").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+</script>
+<div class="booking-btn" onclick="openBooking()">
+    <i class="fas fa-calendar-check"></i>
+    <span>Записаться</span>
+</div>
+
+<div id="bookingModal" class="modal">
+    <div class="modal-content" style="max-width: 400px; text-align: center;">
+        <span class="close-button" onclick="closeBooking()">&times;</span>
+        <h2 style="font-family: 'Oswald', sans-serif; color: #D27D46;">ЗАПИСЬ</h2>
+        <form id="tgForm" style="margin-top: 20px;">
+            <input type="text" id="userName" placeholder="Твое имя" required style="width: 100%; padding: 12px; margin-bottom: 10px; background: #1a1a1a; border: 1px solid #333; color: #fff;">
+            <input type="tel" id="userPhone" placeholder="+380" required style="width: 100%; padding: 12px; margin-bottom: 15px; background: #1a1a1a; border: 1px solid #333; color: #fff;">
+            <button type="submit" class="btn-cta" style="width: 100%; border: none; cursor: pointer;">ОТПРАВИТЬ</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Твои функции openBarbers, openBooking и т.д.
+</script>
+
+</body>
+</html>
 </body>
 </html>
