@@ -122,6 +122,46 @@
 </main>
 
 <footer id="contacts">
+  <div id="teamModal" style="display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto;">
+    <div style="background: #111; margin: 20px auto; padding: 40px 10px; border: 1px solid #D27D46; width: 95%; max-width: 1100px; text-align: center; position: relative; color: #fff;">
+        
+        <span onclick="closeModal()" style="position: absolute; right: 20px; top: 10px; color: #fff; font-size: 45px; cursor: pointer;">&times;</span>
+        
+        <h2 style="font-family: 'Oswald', sans-serif; color: #D27D46; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px;">НАШИ МАСТЕРА</h2>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            
+            <div style="width: 300px; border: 1px solid #333; padding: 20px; background: #000; box-sizing: border-box;">
+                <div style="width: 100%; height: 320px; border-bottom: 2px solid #D27D46; overflow: hidden; margin-bottom: 15px;">
+                    <img src="barber1.jpg" alt="Иван Гамоюнов" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 style="font-family: 'Oswald'; font-size: 22px; margin-bottom: 5px;">Иван Гамоюнов</h3>
+                <p style="color: #D27D46; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">Top Barber / Основатель</p>
+                <p style="color: #aaa; font-size: 14px; min-height: 60px;">Мастер с огромным опытом, знает всё о классических стрижках.</p>
+                <button onclick="closeModal(); openBooking();" style="background: #D27D46; color: #fff; border: none; padding: 12px; width: 100%; cursor: pointer; font-family: 'Oswald';">ЗАПИСАТЬСЯ</button>
+            </div>
+
+            <div style="width: 300px; border: 1px solid #333; padding: 20px; background: #000; box-sizing: border-box;">
+                <div style="width: 100%; height: 320px; border-bottom: 2px solid #D27D46; overflow: hidden; margin-bottom: 15px;">
+                    <img src="barber2.jpg" alt="Дмитрий Ахмедов" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 style="font-family: 'Oswald'; font-size: 22px; margin-bottom: 5px;">Дмитрий Ахмедов</h3>
+                <p style="color: #D27D46; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">Pro Barber</p>
+                <p style="color: #aaa; font-size: 14px; min-height: 60px;">Специалист по современным фейдам и оформлению бороды.</p>
+                <button onclick="closeModal(); openBooking();" style="background: #D27D46; color: #fff; border: none; padding: 12px; width: 100%; cursor: pointer; font-family: 'Oswald';">ЗАПИСАТЬСЯ</button>
+            </div>
+
+            <div style="width: 300px; border: 1px solid #333; padding: 20px; background: #000; box-sizing: border-box;">
+                <div style="width: 100%; height: 320px; border-bottom: 2px solid #D27D46; overflow: hidden; margin-bottom: 15px;">
+                    <img src="barber3.jpg" alt="Александр Белов" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 style="font-family: 'Oswald'; font-size: 22px; margin-bottom: 5px;">Александр Белов</h3>
+                <p style="color: #D27D46; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">Senior Barber</p>
+                <p style="color: #aaa; font-size: 14px; min-height: 60px;">Профессионал, который подберет идеальную прическу под твой тип лица.</p>
+                <button onclick="closeModal(); openBooking();" style="background: #D27D46; color: #fff; border: none; padding: 12px; width: 100%; cursor: pointer; font-family: 'Oswald';">ЗАПИСАТЬСЯ</button>
+            </div>
+
+        </div> </div> </div>
     <div class="footer-container">
         <div class="footer-box">
             <h3>SydorovClub</h3>
@@ -347,7 +387,7 @@
         if (event.target == modal) window.closeBooking();
     }
 <script>
-}
+
     
     // --- ВСТАВЛЯЙ ОТСЮДА ---
     
