@@ -366,47 +366,37 @@ footer { padding: 50px 20px; background: #000; border-top: 1px solid #D27D46; }
     text-transform: uppercase;
     letter-spacing: 2px;
 }
-/* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
-    /* Делаем заголовок чуть меньше, чтобы не занимал весь экран */
-    h1 {
-        font-size: 2.5rem !important;
+    /* Уменьшаем логотип, чтобы он влез в одну строку с меню */
+    .logo {
+        font-size: 1.5rem !important;
+    }
+    
+    .logo-icon {
+        width: 30px !important;
+        height: 30px !important;
     }
 
-    /* Услуги выстраиваем в одну колонку */
-    .services-container {
-        grid-template-columns: 1fr !important; 
-        gap: 20px;
-        padding: 0 15px;
+    /* Навигация: делаем текст меньше и убираем лишние отступы */
+    nav ul {
+        display: flex;
+        gap: 10px !important;
+        padding: 0;
     }
 
-    .service-item {
-        flex-direction: column;
-        align-items: flex-start;
-        border-bottom: 1px solid rgba(210, 125, 70, 0.3);
-        padding-bottom: 15px;
+    nav ul li a {
+        font-size: 0.8rem !important;
+        letter-spacing: 1px;
     }
 
-    .service-item h3 {
-        font-size: 1.1rem;
+    /* Уменьшаем главный заголовок, чтобы он не перекрывал фото */
+    .hero-content h1 {
+        font-size: 2rem !important;
+        line-height: 1.2;
     }
 
-    /* Футер тоже в одну колонку, чтобы контакты не слипались */
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
+    /* Поднимаем кнопку, чтобы она была видна сразу */
+    .hero-content {
+        padding-top: 100px;
     }
-
-    .footer-box {
-        width: 100% !important;
-    }
-
-    /* Кнопки в модальном окне на весь экран */
-    .modal-content {
-        width: 90% !important;
-        margin: 10% auto;
-        padding: 20px !important;
-    }
-}
 }
