@@ -1,0 +1,368 @@
+html { scroll-behavior: smooth; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #1A1D21; color: #B0B3B8; font-family: 'Roboto', sans-serif; overflow-x: hidden; }
+
+/* Анимация */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* ОБНОВЛЕННАЯ ШАПКА */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 0; /* Уменьшили padding сверху/снизу */
+    z-index: 1000;
+    background: rgba(26, 29, 33, 0.95); /* Чуть плотнее фон */
+    backdrop-filter: blur(10px); /* Сильнее размытие */
+    border-bottom: 1px solid rgba(210, 125, 70, 0.1); /* Тонкая медная линия */
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between; /* Лого слева, меню справа */
+    align-items: center;
+}
+
+/* СТИЛИ ЛОГОТИПА */
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.02); /* Легкое увеличение при наведении */
+}
+
+.logo-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem; /* Немного увеличили размер для солидности */
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Увеличили отступ между буквами */
+    font-weight: 700;
+}
+
+.logo-text .highlight {
+    color: #D27D46; /* Финальная "F" будет медного цвета */
+    margin-left: -2px; /* Чтобы "F" стояла плотнее к остальным буквам */
+}
+
+.logo-icon {
+    color: #D27D46;
+    font-size: 1.8rem;
+    transform: rotate(-45deg);
+    margin-right: 5px;
+}
+
+/* СТИЛИ НАВИГАЦИИ (ПОДПРАВИЛИ ДЛЯ БАЛАНСА) */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px; /* Увеличили расстояние между пунктами */
+}
+
+nav a {
+    color: #B0B3B8; /* Сделали пункты меню чуть приглушеннее */
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #D27D46; /* При наведении — медный */
+}
+
+#hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('barbershop-bg.jpg') center/cover; }
+#hero h1 { font-family: 'Oswald'; font-size: 4rem; color: #fff; text-transform: uppercase; }
+.btn-cta { margin-top: 30px; padding: 15px 40px; background: #D27D46; color: #fff; text-decoration: none; font-weight: bold; border: 2px solid #D27D46; transition: 0.3s; }
+.btn-cta:hover { background: transparent; color: #D27D46; }
+
+/* О нас */
+#about { padding: 100px 20px; text-align: center; }
+.stats { display: flex; justify-content: center; gap: 50px; margin-bottom: 50px; }
+.stat-item span { display: block; font-size: 3rem; color: #D27D46; font-family: 'Oswald'; }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; max-width: 1000px; margin: 0 auto; }
+.story-column h3 { color: #D27D46; margin-bottom: 15px; font-family: 'Oswald'; }
+
+#services {
+    padding: 100px 20px;
+    background-color: #121417; /* Чуть темнее основного фона */
+}
+
+.services-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Сетка на 2 колонки */
+.services-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 35px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s ease;
+    position: relative;
+}
+
+/* Эффект при наведении */
+.service-item:hover {
+    border-bottom-color: #D27D46;
+    transform: translateX(5px);
+}
+
+.service-info h3 {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.service-info p {
+    font-size: 0.9rem;
+    color: #888;
+    margin-right: 20px;
+    line-height: 1.4;
+}
+
+.service-price {
+    font-family: 'Oswald', sans-serif;
+    color: #D27D46;
+    font-size: 1.6rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Выделение топовой услуги */
+.service-item.highlight {
+    background: rgba(210, 125, 70, 0.05);
+    padding: 15px;
+    border: 1px solid rgba(210, 125, 70, 0.2);
+    border-radius: 4px;
+}
+
+/* Адаптивность для мобилок */
+@media (max-width: 850px) {
+    .services-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+.service-price { color: #D27D46; font-weight: bold; }
+
+/* Футер */
+footer { padding: 50px 20px; background: #000; border-top: 1px solid #D27D46; }
+.footer-container { display: flex; justify-content: space-around; max-width: 1000px; margin: 0 auto; }
+.social-links a { color: #D27D46; text-decoration: none; display: block; margin-top: 10px; }
+
+/* МОДАЛЬНОЕ ОКНО: КРАСИВЫЙ ВИД */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Очень темный фон */
+    backdrop-filter: blur(10px); /* Сильное размытие */
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: #121417; /* Угольный фон */
+    margin: 50px auto;
+    padding: 60px;
+    border: 1px solid #D27D46; /* Наша медная рамка */
+    width: 90%;
+    max-width: 1100px;
+    position: relative;
+    border-radius: 4px;
+}
+
+.modal-title {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Сетка карточек */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.team-card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 30px;
+    border: 1px solid #333;
+    text-align: center;
+    transition: 0.4s ease;
+}
+
+.team-card:hover {
+    border-color: #D27D46;
+    background: rgba(210, 125, 70, 0.05);
+}
+
+/* ФОТОГРАФИИ МАСТЕРОВ С КРАСИВЫМ НАВЕДЕНИЕМ */
+.member-photo-frame {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 25px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px; /* Легкое скругление */
+    border: 3px solid #333;
+}
+
+.member-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%); /* ЧБ по умолчанию */
+    transition: 0.6s ease;
+}
+
+.team-card:hover img {
+    filter: grayscale(0%); /* Становится цветным при наведении */
+    transform: scale(1.1); /* Легкое увеличение */
+}
+
+/* Иконка соцсетей поверх фото */
+.overlay-socials {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(210, 125, 70, 0.8); /* Медный полупрозрачный фон */
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.team-card:hover .overlay-socials {
+    opacity: 1;
+}
+
+.overlay-socials a {
+    color: #fff;
+    font-size: 2.5rem;
+    text-decoration: none;
+}
+
+/* Текст */
+.team-card h4 {
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.team-card .role {
+    color: #D27D46;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.team-card .bio {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+.developer-footer {
+    background-color: #0a0b0d; /* Глубокий черный фон */
+    padding: 30px 0;
+    border-top: 1px solid rgba(210, 125, 70, 0.15); /* Тонкая медная линия-разделитель */
+    text-align: center;
+}
+
+.dev-content p {
+    color: #555; /* Приглушенный серый цвет для основного текста */
+    font-size: 0.8rem;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.dev-content a {
+    color: #D27D46; /* Наш фирменный медный цвет */
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.4s ease;
+}
+
+.dev-content a:hover {
+    color: #fff; /* При наведении ник становится ярко-белым */
+    text-shadow: 0 0 10px rgba(210, 125, 70, 0.6); /* Легкое свечение */
+}
+/* Стили для модального окна услуг */
+#serviceModal .modal-content {
+    max-width: 500px;
+    border: 1px solid rgba(210, 125, 70, 0.3); /* Тонкая медная рамка */
+    text-align: left;
+    padding: 40px;
+}
+
+.service-details-content p {
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Иконки для времени и цены */
+#modalServiceTime::before {
+    content: "\f017"; /* Иконка часов FontAwesome */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+    color: #D27D46;
+}
+
+#modalServicePrice::before {
+    content: "\f3d1"; /* Иконка купюры */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+    color: #D27D46;
+}
+
+/* Кнопка записи в окне */
+#serviceModal .btn-cta {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}

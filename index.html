@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SydorovClub | Белая Церковь</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="serviceModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeServiceModal()">&times;</span>
+        <h2 id="modalServiceTitle" class="modal-title" style="color: #D27D46;">Название услуги</h2>
+        <div class="service-details-content">
+            <p id="modalServiceDescription" style="font-size: 1.2rem; line-height: 1.6; color: #fff;"></p>
+            <hr style="border: 0; border-top: 1px solid #333; margin: 30px 0;">
+            <p style="color: #888;">Длительность: <span id="modalServiceTime" style="color: #fff;">-</span></p>
+            <p style="color: #888;">Стоимость: <span id="modalServicePrice" style="color: #D27D46; font-weight: bold; font-size: 1.5rem;">-</span></p>
+            <br>
+           <a href="https://t.me/zakrouokno?text=Привет!%20Хочу%20записаться%20на%20стрижку%20в%20SydoroF" class="btn-cta" style="display: inline-block;">Записаться сейчас</a>
+        </div>
+    </div>
+</div>
+
+<header>
+    <div class="header-container">
+       <a href="#" class="logo">
+            <i class="fas fa-scissors logo-icon"></i>
+            <span class="logo-text">Sydoro<span class="highlight">F</span></span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="javascript:void(0)" onclick="openModal()">Мастера</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section id="hero">
+        <h1>Классика мужского стиля</h1>
+        <p>Белая Церковь. Твой стиль — наша репутация.</p>
+        <a href="#services" class="btn-cta">Записаться</a>
+    </section>
+
+    <section id="about" class="reveal">
+        <div class="about-content">
+            <h2>Наша История</h2>
+            <div class="stats">
+                <div class="stat-item"><span>5</span>лет опыта</div>
+                <div class="stat-item"><span>3</span>топ-мастера</div>
+                <div class="stat-item"><span>100%</span>стиля</div>
+            </div>
+            <div class="story-text">
+                <p class="lead">Все началось 5 лет назад в самом сердце Белой Церкви. Мы мечтали о месте, где традиции классического бритья встречаются с ритмом современного города.</p>
+                <div class="story-grid">
+                    <div class="story-column">
+                        <h3>Как всё начиналось</h3>
+                        <p>На тихой улочке Ярослава Мудрого появилась наша первая вывеска. Мы начинали с одного кресла и желания вернуть культуру ухода за собой.</p>
+                    </div>
+                    <div class="story-column">
+                        <h3>Наши ценности</h3>
+                        <p>Сегодня у нас работают 3 фаната своего дела. Мы используем только премиальную косметику и верим в честный мужской разговор.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="reveal">
+        <div class="services-wrapper">
+            <h2 class="section-title">Услуги и Прайс</h2>
+            <div class="services-list">
+                <div class="service-column">
+                    <div class="service-item" onclick="openService('Мужская стрижка', 'Полный комплекс: мытье, стрижка и укладка.', '60 мин', '800 UAH')">
+                        <div class="service-info"><h3>Мужская стрижка</h3><p>Консультация, мытье, укладка</p></div>
+                        <span class="service-price">800UAH</span>
+                    </div>
+                    <div class="service-item" onclick="openService('Стрижка под машинку', 'Быстрая стрижка с четкими контурами.', '30 мин', '400 UAH')">
+                        <div class="service-info"><h3>Стрижка под машинку</h3><p>Одной или двумя насадками</p></div>
+                        <span class="service-price">400UAH</span>
+                    </div>
+                    <div class="service-item" onclick="openService('Укладка и стайлинг', 'Профессиональный стайлинг для мероприятия.', '20 мин', '200 UAH')">
+                        <div class="service-info"><h3>Укладка и стайлинг</h3><p>Особый случай</p></div>
+                        <span class="service-price">200UAH</span>
+                    </div>
+                    <div class="service-item" onclick="openService('Детская стрижка', 'Для джентльменов до 12 лет.', '45 мин', '600 UAH')">
+                        <div class="service-info"><h3>Детская стрижка</h3><p>До 12 лет</p></div>
+                        <span class="service-price">600UAH</span>
+                    </div>
+                </div>
+                <div class="service-column">
+                    <div class="service-item" onclick="openService('Моделирование бороды', 'Создание формы и уход маслом.', '40 мин', '500 UAH')">
+                        <div class="service-info"><h3>Моделирование бороды</h3><p>Форма, опасная бритва</p></div>
+                        <span class="service-price">500UAH</span>
+                    </div>
+                    <div class="service-item" onclick="openService('Королевское бритье', 'Традиционный ритуал распаривания.', '50 мин', '700 UAH')">
+                        <div class="service-info"><h3>Королевское бритье</h3><p>Классика бритья</p></div>
+                        <span class="service-price">700UAH</span>
+                    </div>
+                    <div class="service-item" onclick="openService('Камуфляж седины', 'Тонирование волос или бороды.', '30 мин', '600 UAH')">
+                        <div class="service-info"><h3>Камуфляж седины</h3><p>Натуральный эффект</p></div>
+                        <span class="service-price">600UAH</span>
+                    </div>
+                    <div class="service-item" onclick="openService('Отец + Сын', 'Комплексный визит для двоих.', '1.5-2 ч', '1200 UAH')">
+                        <div class="service-info"><h3>Отец + Сын</h3><p>Выгодный визит</p></div>
+                        <span class="service-price">1200UAH</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="contacts">
+    <div class="footer-container">
+        <div class="footer-box">
+            <h3>SydorovClub</h3>
+            <p>Белая Церковь, ул. Ярослава Мудрого, 15</p>
+        </div>
+        <div class="footer-box">
+            <h3>Мы в сети</h3>
+            <div class="social-links">
+                <a href="https://instagram.com/zakrouokno" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://t.me/artandrew1" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<footer class="developer-footer">
+    <div class="dev-content">
+        <p>Created by <a href="https://github.com/zakrouokno" target="_blank">github/zakrouokno</a> &copy; 2026</p>
+    </div>
+</footer>
+
+<div id="teamModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <h2 class="modal-title">Наши Профи</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="member-photo-frame"><img src="barber1.jpg" alt="Мастер"></div>
+                <h4>Иван Гамоюнов</h4>
+                <p class="role">Топ-барбер</p>
+                <p class="bio">7 лет в деле. Специалист по классике.</p>
+            </div>
+            <div class="team-card">
+                <div class="member-photo-frame"><img src="barber2.jpg" alt="Мастер"></div>
+                <h4>Дмитрий Ахмедов</h4>
+                <p class="role">Стилист-фейдер</p>
+                <p class="bio">Мастер современных фейдов.</p>
+            </div>
+            <div class="team-card">
+                <div class="member-photo-frame"><img src="barber3.jpg" alt="Мастер"></div>
+                <h4>Александр Белый</h4>
+                <p class="role">Мастер бороды</p>
+                <p class="bio">Идеальная форма и контуры.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Анимация появления
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    // Функции окон
+    function openModal() {
+        document.getElementById("teamModal").style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+    function closeModal() {
+        document.getElementById("teamModal").style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+    function openService(title, desc, time, price) {
+        document.getElementById("modalServiceTitle").innerText = title;
+        document.getElementById("modalServiceDescription").innerText = desc;
+        document.getElementById("modalServiceTime").innerText = time;
+        document.getElementById("modalServicePrice").innerText = price;
+        document.getElementById("serviceModal").style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+    function closeServiceModal() {
+        document.getElementById("serviceModal").style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    // Закрытие по клику вне окна
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("teamModal")) closeModal();
+        if (event.target == document.getElementById("serviceModal")) closeServiceModal();
+    }
+</script>
+
+</body>
+</html>
