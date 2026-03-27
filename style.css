@@ -427,3 +427,71 @@ footer { padding: 50px 20px; background: #000; border-top: 1px solid #D27D46; }
         font-size: 1.8rem !important;
     }
 }
+/* --- КНОПКА ЗАПИСИ --- */
+.booking-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    border: 2px solid #D27D46;
+    padding: 15px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+
+/* Иконка */
+.booking-btn i {
+    color: #D27D46;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+/* Текст */
+.booking-btn span {
+    color: #ffffff;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Наведение */
+.booking-btn:hover {
+    background-color: #D27D46;
+    transform: translateY(-3px);
+}
+
+.booking-btn:hover span, 
+.booking-btn:hover i {
+    color: #000000;
+}
+
+/* Анимация пульсации */
+@keyframes pulse-orange {
+    0% { box-shadow: 0 0 0 0 rgba(210, 125, 70, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(210, 125, 70, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(210, 125, 70, 0); }
+}
+
+.booking-btn {
+    animation: pulse-orange 2s infinite;
+}
+
+/* Мобильная версия */
+@media (max-width: 480px) {
+    .booking-btn span {
+        display: none;
+    }
+    .booking-btn {
+        padding: 15px;
+        border-radius: 50%;
+    }
+    .booking-btn i {
+        margin-right: 0;
+    }
+}
