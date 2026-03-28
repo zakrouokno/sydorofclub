@@ -428,21 +428,42 @@ footer { padding: 50px 20px; background: #000; border-top: 1px solid #D27D46; }
     }
 }
 /* --- КНОПКА ЗАПИСИ --- */
-.booking-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    background-color: #000000;
-    border: 2px solid #D27D46;
-    padding: 15px 25px;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    transition: 0.3s;
+/* Прячем старую центральную кнопку намертво */
+.booking-btn, #UNIQUE-ROUND-BTN, .cta-container {
+    display: none !important;
 }
+
+/* Наша новая кнопка в углу */
+.my-fab-container {
+    position: fixed !important;
+    bottom: 25px !important;
+    right: 25px !important;
+    z-index: 999999 !important;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.my-fab-main {
+    width: 60px; height: 60px; background-color: #D27D46;
+    border-radius: 50%; display: flex; justify-content: center;
+    align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    cursor: pointer; transition: 0.3s;
+}
+
+.my-fab-options { display: none; flex-direction: column-reverse; margin-bottom: 15px; gap: 12px; }
+.my-fab-container.is-active .my-fab-options { display: flex; }
+
+.my-fab-item {
+    width: 50px; height: 50px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    text-decoration: none; color: white !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 22px;
+}
+
+.bg-tg { background-color: #0088cc; }
+.bg-inst { background-color: #E1306C; }
+.bg-book { background-color: #28a745; }
 
 /* Иконка */
 .booking-btn i {
@@ -493,5 +514,75 @@ footer { padding: 50px 20px; background: #000; border-top: 1px solid #D27D46; }
     }
     .booking-btn i {
         margin-right: 0;
+    }
+}
+/* ====================== НОВАЯ КНОПКА ВНИЗУ ====================== */
+.fixed-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #111;
+    border-top: 1px solid #D27D46;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 12px 10px;
+    z-index: 9999;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+.tg { background: #0088cc; }
+.inst { background: #E1306C; }
+
+.record-btn {
+    background: #D27D46;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.record-btn:hover {
+    background: #c96a3a;
+    transform: scale(1.05);
+}
+
+/* Адаптив для очень маленьких экранов */
+@media (max-width: 480px) {
+    .fixed-bottom-bar {
+        padding: 10px 8px;
+        gap: 10px;
+    }
+    .social-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+    .record-btn {
+        padding: 12px 20px;
+        font-size: 15px;
     }
 }
