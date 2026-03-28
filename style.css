@@ -495,30 +495,31 @@ footer { padding: 50px 20px; background: #000; border-top: 1px solid #D27D46; }
         margin-right: 0;
     }
 }
-/* ИСПРАВЛЕНИЕ ДЛЯ ФОРМЫ ЗАПИСИ НА МОБИЛКАХ */
+/* ЖЕСТКОЕ ИСПРАВЛЕНИЕ ДЛЯ ФОРМЫ НА ТЕЛЕФОНЕ */
 @media screen and (max-width: 768px) {
-    /* Делаем само окно прокручиваемым, если оно не влазит в экран */
-    .modal-content, 
-    div[class*="modal"], 
-    #bookingModal div { 
-        max-height: 90vh !important; /* Высота окна - 90% экрана */
-        overflow-y: auto !important; /* Включаем прокрутку внутри */
-        padding: 20px !important;    /* Немного уменьшаем отступы */
-        margin-top: 5vh !important;
+    /* 1. Делаем всё модальное окно прокручиваемым */
+    .modal, .modal-content, #booking-modal, [class*="modal"] {
+        display: block !important; /* Чтобы работал скролл */
+        overflow-y: auto !important; 
+        -webkit-overflow-scrolling: touch; /* Плавный скролл на iPhone */
+        max-height: 100vh !important;
+        padding-bottom: 80px !important; /* Место под кнопку внизу */
     }
 
-    /* Уменьшаем поля ввода, чтобы сэкономить место */
-    input, select, textarea {
-        margin-bottom: 10px !important;
-        padding: 8px !important;
-    }
-
-    /* Гарантируем, что кнопка "Отправить" будет видна и доступна */
-    button[type="submit"], 
-    .submit-btn {
+    /* 2. Находим кнопку отправки и выводим её на передний план */
+    form button[type="submit"], 
+    .submit-btn, 
+    #send-btn,
+    .btn-send {
         display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
         width: 100% !important;
-        margin-top: 15px !important;
-        position: relative !important; /* Чтобы не улетала под другие слои */
+        height: 50px !important;
+        background-color: #D27D46 !important; /* Твой оранжевый */
+        color: #fff !important;
+        margin-top: 20px !important;
+        position: relative !important;
+        z-index: 999999 !important;
     }
 }
