@@ -457,5 +457,35 @@
         </a>
     </p>
 </div>
+<style>
+    .mobile-booking-btn {
+        display: none; /* Скрыта на компьютерах */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #D27D46;
+        color: white;
+        border-radius: 50%;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        z-index: 9999;
+        font-size: 24px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-booking-btn {
+            display: flex; /* Показываем только на мобилках */
+        }
+    }
+</style>
+
+<button class="mobile-booking-btn" onclick="openBooking()">
+    <i class="fas fa-cut"></i>
+</button>
 </body>
 </html>
