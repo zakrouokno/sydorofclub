@@ -689,6 +689,85 @@ function toggleFab() {
         <span id="fabMainIcon">💬</span>
     </div>
 </div>
+<style>
+    /* 1. ПРИНУДИТЕЛЬНО ПРЯЧЕМ ВСЁ СТАРОЕ (чтобы не двоилось) */
+    #UNIQUE-ROUND-BTN, .old-fab, .cta-container, .booking-footer, 
+    button[onclick*="openBooking"]:not(.fab-item) {
+        display: none !important;
+    }
+
+    /* 2. НАСТРОЙКА НОВОЙ КНОПКИ */
+    .my-fab-container {
+        position: fixed;
+        bottom: 25px; /* Отступ от низа */
+        right: 25px;  /* Отступ от края */
+        z-index: 2147483647 !important; /* Поверх всех слоев */
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .my-fab-main {
+        width: 60px;
+        height: 60px;
+        background-color: #D27D46;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .my-fab-options {
+        display: none; /* Скрыто по умолчанию */
+        flex-direction: column-reverse;
+        margin-bottom: 15px;
+        gap: 12px;
+    }
+
+    .my-fab-container.is-active .my-fab-options {
+        display: flex;
+    }
+
+    .my-fab-item {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+        font-size: 22px;
+    }
+
+    /* Цвета подклассам */
+    .bg-tg { background-color: #0088cc; }
+    .bg-inst { background-color: #E1306C; }
+    .bg-book { background-color: #28a745; }
+</style>
+
+<div class="my-fab-container" id="customFab">
+    <div class="my-fab-options">
+        <a href="https://t.me/artandrew1" target="_blank" class="my-fab-item bg-tg">✈️</a>
+        <a href="https://instagram.com/zakrouokno" target="_blank" class="my-fab-item bg-inst">📸</a>
+        <div class="my-fab-item bg-book" style="cursor:pointer;" onclick="openBooking();">✂️</div>
+    </div>
+    <div class="my-fab-main" onclick="document.getElementById('customFab').classList.toggle('is-active')">
+        <span style="color:white; font-size: 30px;">💬</span>
+    </div>
+</div>
+
+<script>
+    // Простейшая проверка: если функция openBooking не определена, создадим заглушку, чтобы не было ошибок
+    if (typeof openBooking !== 'function') {
+        window.openBooking = function() {
+            alert('Форма записи еще не подключена');
+        };
+    }
+</script>
 
 <script>
 function toggleMainFab() {
