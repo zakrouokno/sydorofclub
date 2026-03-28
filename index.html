@@ -479,15 +479,21 @@
 </button>
 
 <style>
-    /* На телефонах показываем КРУГЛУЮ кнопку */
+    /* 1. ПОКАЗЫВАЕМ ТОЛЬКО НАШУ НОВУЮ КРУГЛУЮ КНОПКУ */
     @media screen and (max-width: 768px) {
         #UNIQUE-ROUND-BTN {
-            display: flex !important;
+            display: flex !important; /* Наша круглая кнопка - ЖИВИ! */
         }
-        
-        /* Скрываем СТАРУЮ кнопку (по её расположению внизу) */
-        .booking-panel, .booking-container, .cta-button {
-            display: none !important;
+
+        /* 2. СКРЫВАЕМ ВСЁ ПОДОЗРИТЕЛЬНОЕ ВНИЗУ */
+        /* Прячем фиксированные панели, старые кнопки и блоки записи */
+        .booking-footer, 
+        .fixed-bottom, 
+        .cta-container,
+        section#booking,
+        div[style*="position: fixed"][style*="bottom: 0"], 
+        button:not(#UNIQUE-ROUND-BTN):not(.menu-btn) {
+            display: none !important; 
         }
     }
 </style>
