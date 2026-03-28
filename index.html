@@ -479,21 +479,61 @@
 </button>
 
 <style>
-    /* 1. ПОКАЗЫВАЕМ ТОЛЬКО НАШУ НОВУЮ КРУГЛУЮ КНОПКУ */
+    /* 1. НАША КРУГЛАЯ КНОПКА (Оставляем как есть) */
+    #UNIQUE-ROUND-BTN {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 65px;
+        height: 65px;
+        background-color: #D27D46;
+        color: white;
+        border-radius: 50%;
+        border: none;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+        z-index: 99999;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+    }
+
     @media screen and (max-width: 768px) {
-        #UNIQUE-ROUND-BTN {
-            display: flex !important; /* Наша круглая кнопка - ЖИВИ! */
+        #UNIQUE-ROUND-BTN { display: flex !important; }
+
+        /* 2. СКРЫВАЕМ ТОЛЬКО СТАРУЮ ПАНЕЛЬ (не трогаем модалку!) */
+        .booking-panel, .fixed-bottom, .cta-container { 
+            display: none !important; 
         }
 
-        /* 2. СКРЫВАЕМ ВСЁ ПОДОЗРИТЕЛЬНОЕ ВНИЗУ */
-        /* Прячем фиксированные панели, старые кнопки и блоки записи */
-        .booking-footer, 
-        .fixed-bottom, 
-        .cta-container,
-        section#booking,
-        div[style*="position: fixed"][style*="bottom: 0"], 
-        button:not(#UNIQUE-ROUND-BTN):not(.menu-btn) {
-            display: none !important; 
+        /* 3. ОЖИВЛЯЕМ МОДАЛЬНОЕ ОКНО И КНОПКИ ВНУТРИ */
+        .modal, .modal-content, #bookingModal {
+            display: block !important; /* Чтобы окно открывалось */
+            overflow-y: auto !important; /* Чтобы можно было листать */
+            max-height: 95vh !important;
+            z-index: 100000 !important;
+        }
+
+        /* ПРИНУДИТЕЛЬНО ПОКАЗЫВАЕМ КНОПКУ "ОТПРАВИТЬ" И "ЗАКРЫТЬ" */
+        .modal button, 
+        .modal-content button, 
+        .close-btn, 
+        .close,
+        button[type="submit"] {
+            display: block !important; 
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        /* Чтобы кнопка закрытия (крестик) была видна */
+        .close, .close-modal {
+            position: absolute !important;
+            top: 10px !important;
+            right: 15px !important;
+            font-size: 30px !important;
+            color: #fff !important;
+            z-index: 100001 !important;
         }
     }
 </style>
