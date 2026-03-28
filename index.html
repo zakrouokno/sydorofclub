@@ -458,41 +458,41 @@
     </p>
 </div>
 <style>
-    /* 1. Прячем старую длинную кнопку на телефонах */
+    /* 1. Прячем старую панель и кнопку на телефонах (все возможные варианты) */
     @media screen and (max-width: 768px) {
-        .booking-btn { display: none !important; } 
+        .booking-panel, 
+        .booking-container, 
+        .cta-button,
+        button[onclick="openBooking()"]:not(.mobile-booking-btn) { 
+            display: none !important; 
+        }
     }
 
-    /* 2. Твоя новая круглая кнопка (оставляем как было) */
+    /* 2. Твоя новая круглая кнопка */
     .mobile-booking-btn {
-        display: none;
         position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
+        bottom: 25px;
+        right: 25px;
+        width: 65px;
+        height: 65px;
         background-color: #D27D46;
         color: white;
         border-radius: 50%;
         border: none;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        z-index: 9999;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        z-index: 10000;
         font-size: 24px;
         cursor: pointer;
-        display: none;
+        display: none; /* Скрыта на ПК */
         align-items: center;
         justify-content: center;
     }
 
     @media screen and (max-width: 768px) {
         .mobile-booking-btn {
-            display: flex;
+            display: flex !important; /* Показываем на мобилках */
         }
     }
 </style>
-
-<button class="mobile-booking-btn" onclick="openBooking()">
-    <i class="fas fa-cut"></i>
-</button>
 </body>
 </html>
