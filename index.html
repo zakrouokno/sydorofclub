@@ -457,45 +457,252 @@
         </a>
     </p>
 </div>
-<button id="UNIQUE-ROUND-BTN" onclick="openBooking()" style="
-    display: none;
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 65px;
-    height: 65px;
-    background-color: #D27D46;
-    color: white;
-    border-radius: 50%;
-    border: none;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.6);
-    z-index: 99999;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-">
-    <i class="fas fa-cut"></i>
-</button>
+<div class="fab-container">
+    <div class="fab-options">
+        <a href="https://t.me/твой_логин" class="fab-item telegram" target="_blank">
+            <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="https://instagram.com/твой_логин" class="fab-item instagram" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <div class="fab-item booking" onclick="openBooking()">
+            <i class="fas fa-cut"></i>
+        </div>
+    </div>
+    <div class="fab-main" onclick="toggleFab()">
+        <i class="fas fa-comments" id="fab-icon"></i>
+    </div>
+</div>
+
+<script>
+function toggleFab() {
+    const container = document.querySelector('.fab-container');
+    const icon = document.getElementById('fab-icon');
+    container.classList.toggle('active');
+    
+    // Меняем иконку на крестик при открытии
+    if (container.classList.contains('active')) {
+        icon.classList.remove('fa-comments');
+        icon.classList.add('fa-times');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-comments');
+    }
+}
+</script>
 
 <style>
-    /* 1. ПОКАЗЫВАЕМ ТОЛЬКО НАШУ НОВУЮ КРУГЛУЮ КНОПКУ */
-    @media screen and (max-width: 768px) {
-        #UNIQUE-ROUND-BTN {
-            display: flex !important; /* Наша круглая кнопка - ЖИВИ! */
-        }
+    /* 1. ГЛАВНЫЙ КОНТЕЙНЕР (в углу) */
+    .fab-container {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 999999;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
 
-        /* 2. СКРЫВАЕМ ВСЁ ПОДОЗРИТЕЛЬНОЕ ВНИЗУ */
-        /* Прячем фиксированные панели, старые кнопки и блоки записи */
-        .booking-footer, 
-        .fixed-bottom, 
-        .cta-container,
-        section#booking,
-        div[style*="position: fixed"][style*="bottom: 0"], 
-        button:not(#UNIQUE-ROUND-BTN):not(.menu-btn) {
-            display: none !important; 
-        }
+    /* Главная кнопка-пусковик */
+    .fab-main {
+        width: 65px;
+        height: 65px;
+        background-color: #D27D46; /* Твой оранжевый */
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 28px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    /* Опции (Инста, Телега, Запись) - скрыты по умолчанию */
+    .fab-options {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-bottom: 15px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    /* Когда нажали на главную кнопку */
+    .fab-container.active .fab-options {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Маленькие кнопки */
+    .fab-item {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        font-size: 22px;
+    }
+
+    /* Цвета кнопок */
+    .tg-btn { background-color: #0088cc; }
+    .inst-btn { background-color: #E1306C; }
+    .book-btn { background-color: #28a745; } /* Зеленая для записи */
+
+    /* Убираем ВСЕ лишние старые кнопки, которые могли остаться */
+    #UNIQUE-ROUND-BTN, .old-fab-button { 
+        display: none !important; 
+    }
+    #UNIQUE-ROUND-BTN, 
+.old-fab, 
+button[onclick="openBooking()"]:not(.book-btn) { 
+    display: none !important; 
+}
+</style>
+
+<div class="fab-container" id="mainFab">
+    <div class="fab-options">
+        <a href="https://t.me/твой_логин" class="fab-item tg-btn" title="Telegram">✈️</a>
+        <a href="https://instagram.com/твой_логин" class="fab-item inst-btn" title="Instagram">📸</a>
+        <div class="fab-item book-btn" onclick="openBooking(); toggleFab();" title="Записатися">✂️</div>
+    </div>
+    
+    <div class="fab-main" onclick="toggleFab()">
+        <span id="fabIcon">💬</span>
+    </div>
+</div>
+
+<script>
+function toggleFab() {
+    const fab = document.getElementById('mainFab');
+    const icon = document.getElementById('fabIcon');
+    fab.classList.toggle('active');
+    
+    // Меняем иконку на крестик при открытии меню
+    if (fab.classList.contains('active')) {
+        icon.innerText = '✕';
+    } else {
+        icon.innerText = '💬';
+    }
+}
+</script>
+<style>
+    /* 1. УБИРАЕМ ЛИШНИЕ СТАРЫЕ КНОПКИ (чтобы не дублировались) */
+    #UNIQUE-ROUND-BTN, .old-fab, button[onclick="openBooking()"]:not(.book-btn) { 
+        display: none !important; 
+    }
+
+    /* 2. НОВЫЙ КРАСИВЫЙ ВИДЖЕТ */
+    .fab-container {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 999999;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    /* Главная кнопка */
+    .fab-main {
+        width: 65px;
+        height: 65px;
+        background-color: #D27D46; /* Твой оранжевый */
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 28px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    /* Всплывающее меню */
+    .fab-options {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-bottom: 15px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    .fab-container.active .fab-options {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Маленькие кнопки */
+    .fab-item {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        font-size: 22px;
+    }
+
+    /* Цвета кнопок */
+    .tg-btn { background-color: #0088cc; }
+    .inst-btn { background-color: #E1306C; }
+    .book-btn { background-color: #28a745; } /* Зеленая для записи */
+
+    /* Фикс прокрутки сайта */
+    body {
+        overflow: auto !important;
     }
 </style>
+
+<div class="fab-container" id="myMainFab">
+    <div class="fab-options">
+        <a href="https://t.me/artandrew1" class="fab-item tg-btn" title="Telegram">
+            <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="https://instagram.com/zakrouokno" class="fab-item inst-btn" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <div class="fab-item book-btn" onclick="openBooking(); toggleMainFab();" title="Записатися">
+            <i class="fas fa-cut"></i>
+        </div>
+    </div>
+    
+    <div class="fab-main" onclick="toggleMainFab()">
+        <span id="fabMainIcon">💬</span>
+    </div>
+</div>
+
+<script>
+function toggleMainFab() {
+    const fab = document.getElementById('myMainFab');
+    const icon = document.getElementById('fabMainIcon');
+    fab.classList.toggle('active');
+    
+    // Меняем иконку на крестик при открытии меню
+    if (fab.classList.contains('active')) {
+        icon.innerText = '✕';
+    } else {
+        icon.innerText = '💬';
+    }
+}
+</script>
 </body>
 </html>
