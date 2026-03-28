@@ -457,40 +457,37 @@
         </a>
     </p>
 </div>
+<button id="UNIQUE-ROUND-BTN" onclick="openBooking()" style="
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    background-color: #D27D46;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+    z-index: 99999;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+">
+    <i class="fas fa-cut"></i>
+</button>
+
 <style>
-    /* 1. Прячем старую панель и кнопку на телефонах (все возможные варианты) */
+    /* На телефонах показываем КРУГЛУЮ кнопку */
     @media screen and (max-width: 768px) {
-        .booking-panel, 
-        .booking-container, 
-        .cta-button,
-        button[onclick="openBooking()"]:not(.mobile-booking-btn) { 
-            display: none !important; 
+        #UNIQUE-ROUND-BTN {
+            display: flex !important;
         }
-    }
-
-    /* 2. Твоя новая круглая кнопка */
-    .mobile-booking-btn {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        width: 65px;
-        height: 65px;
-        background-color: #D27D46;
-        color: white;
-        border-radius: 50%;
-        border: none;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-        z-index: 10000;
-        font-size: 24px;
-        cursor: pointer;
-        display: none; /* Скрыта на ПК */
-        align-items: center;
-        justify-content: center;
-    }
-
-    @media screen and (max-width: 768px) {
-        .mobile-booking-btn {
-            display: flex !important; /* Показываем на мобилках */
+        
+        /* Скрываем СТАРУЮ кнопку (по её расположению внизу) */
+        .booking-panel, .booking-container, .cta-button {
+            display: none !important;
         }
     }
 </style>
