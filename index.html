@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -255,7 +255,11 @@
 
 <div id="bookingModal" class="modal" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);">
     <div class="modal-content" style="background: #1a1a1a; margin: 10% auto; padding: 30px; border: 1px solid #D27D46; width: 90%; max-width: 400px; text-align: center; position: relative;">
-        <span class="close-button" onclick="closeBooking()" style="position: absolute; right: 20px; top: 10px; color: #fff; font-size: 30px; cursor: pointer;">&times;</span>
+        <span class="close" 
+      onclick="document.getElementById('bookingModal').style.display='none'" 
+      style="position: absolute; top: 10px; right: 20px; font-size: 50px; color: #D27D46; cursor: pointer; z-index: 999999; display: block !important;">
+      &times;
+</span>#fff; font-size: 30px; cursor: pointer;">&times;</span>
         <h2 style="font-family: 'Oswald', sans-serif; color: #D27D46; margin-bottom: 20px; letter-spacing: 2px;">ОНЛАЙН ЗАПИСЬ</h2>
         
         <form id="tgForm">
