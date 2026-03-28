@@ -458,8 +458,14 @@
     </p>
 </div>
 <style>
+    /* 1. Прячем старую длинную кнопку на телефонах */
+    @media screen and (max-width: 768px) {
+        .booking-btn { display: none !important; } 
+    }
+
+    /* 2. Твоя новая круглая кнопка (оставляем как было) */
     .mobile-booking-btn {
-        display: none; /* Скрыта на компьютерах */
+        display: none;
         position: fixed;
         bottom: 20px;
         right: 20px;
@@ -473,13 +479,14 @@
         z-index: 9999;
         font-size: 24px;
         cursor: pointer;
+        display: none;
         align-items: center;
         justify-content: center;
     }
 
     @media screen and (max-width: 768px) {
         .mobile-booking-btn {
-            display: flex; /* Показываем только на мобилках */
+            display: flex;
         }
     }
 </style>
