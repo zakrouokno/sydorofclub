@@ -536,6 +536,34 @@
             z-index: 100001 !important;
         }
     }
+    /* Настройки для мобильных (вставляем ВНУТРЬ твоего тега <style>) */
+@media screen and (max-width: 768px) {
+    /* 1. Делаем крестик огромным и заметным */
+    .close, .close-modal, .modal-close {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: absolute !important;
+        top: 10px !important;
+        right: 10px !important;
+        width: 50px !important;  /* Область нажатия под палец */
+        height: 50px !important;
+        font-size: 45px !important; /* Сам крестик */
+        color: #D27D46 !important; /* Твой оранжевый */
+        z-index: 1000000 !important; /* Поверх всего */
+        cursor: pointer !important;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0,0,0,0.1); /* Легкий фон, чтобы видеть кнопку */
+        border-radius: 50%;
+    }
+
+    /* 2. Сдвигаем контент формы вниз, чтобы крестик ничего не перекрывал */
+    .modal-content {
+        padding-top: 60px !important;
+        position: relative !important;
+    }
+}
 </style>
 </body>
 </html>
