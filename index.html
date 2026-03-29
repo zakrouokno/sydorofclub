@@ -339,11 +339,11 @@
       }
     }
   </script>
-    <!-- Модальное окно записи -->
+      <!-- ====================== МОДАЛЬНОЕ ОКНО ЗАПИСИ ====================== -->
   <div id="bookingModal" class="fixed inset-0 bg-black/80 hidden flex items-center justify-center z-[100] p-4">
     <div class="bg-[#1a1a1a] rounded-3xl w-full max-w-lg overflow-hidden">
       
-      <!-- Заголовок модального окна -->
+      <!-- Заголовок -->
       <div class="flex justify-between items-center border-b border-[#d4af37]/20 px-8 py-6">
         <h2 class="heading text-3xl font-bold">Записаться</h2>
         <button onclick="closeBookingModal()" 
@@ -352,6 +352,8 @@
 
       <div class="p-8 md:p-10">
         <form id="booking-form" class="space-y-7">
+
+          <!-- Услуга -->
           <div>
             <label class="block text-sm text-gray-400 mb-2">Услуга</label>
             <select id="service" class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-4 text-white">
@@ -364,6 +366,7 @@
             </select>
           </div>
 
+          <!-- Мастер -->
           <div>
             <label class="block text-sm text-gray-400 mb-2">Мастер</label>
             <select id="master" class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-4 text-white">
@@ -374,20 +377,53 @@
             </select>
           </div>
 
+                   <!-- Дата и Время -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Дата с календариком -->
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">Дата визита</label>
+              <input type="date" id="date" 
+                     class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-4 text-white 
+                            focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] transition-all">
+            </div>
+
+            <!-- Время -->
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">Время</label>
+              <select id="time" class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-4 text-white">
+                <option value="">— Выберите время —</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+              </select>
+            </div>
+          </div>
+          <!-- Имя и Телефон -->
           <div class="grid grid-cols-1 gap-6">
             <div>
               <label class="block text-sm text-gray-400 mb-2">Имя</label>
-              <input type="text" id="name" placeholder="Ваше имя" class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-4 text-white">
+              <input type="text" id="name" placeholder="Ваше имя" 
+                     class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-4 text-white">
             </div>
             <div>
               <label class="block text-sm text-gray-400 mb-2">Телефон</label>
-              <input type="tel" id="phone" placeholder="+380 XX XXX XX XX" class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-4 text-white">
+              <input type="tel" id="phone" placeholder="+380 XX XXX XX XX" 
+                     class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-4 text-white">
             </div>
           </div>
 
+          <!-- Комментарий -->
           <div>
-            <label class="block text-sm text-gray-400 mb-2">Комментарий</label>
-            <textarea id="comment" rows="3" placeholder="Удобное время или пожелания..." 
+            <label class="block text-sm text-gray-400 mb-2">Комментарий / пожелания</label>
+            <textarea id="comment" rows="3" placeholder="Удобное время, дополнительные пожелания..." 
                       class="w-full bg-black border border-[#d4af37]/40 rounded-3xl px-6 py-4 text-white"></textarea>
           </div>
 
