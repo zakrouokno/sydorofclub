@@ -1,310 +1,315 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SydorovClub | Белая Церковь</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SydorovClub | Барбершоп в Белой Церкви</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .heading { font-family: 'Playfair Display', serif; }
+    .hero {
+      background: linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.9)), 
+                  url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
+      min-height: 100vh;
+    }
+    .nav-link { transition: all 0.3s ease; }
+    .nav-link:hover { color: #d4af37; transform: translateY(-2px); }
+  </style>
 </head>
-<body>
+<body class="bg-[#0a0a0a] text-[#f5f5f5]">
 
-<div id="serviceModal" class="modal">
-    <div class="modal-content">
-        <span class="close-button" onclick="closeServiceModal()">&times;</span>
-        <h2 id="modalServiceTitle" class="modal-title" style="color: #D27D46;">Название услуги</h2>
-        <div class="service-details-content">
-            <p id="modalServiceDescription" style="font-size: 1.2rem; line-height: 1.6; color: #fff;"></p>
-            <hr style="border: 0; border-top: 1px solid #333; margin: 30px 0;">
-            <p style="color: #888;">Длительность: <span id="modalServiceTime" style="color: #fff;">-</span></p>
-            <p style="color: #888;">Стоимость: <span id="modalServicePrice" style="color: #D27D46; font-weight: bold; font-size: 1.5rem;">-</span></p>
-            <br>
-           <a href="https://t.me/zakrouokno?text=Привет!%20Хочу%20записаться%20на%20стрижку%20в%20SydoroF" class="btn-cta" style="display: inline-block;">Записаться сейчас</a>
+  <!-- Навбар -->
+  <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-md z-50 border-b border-[#d4af37]/30">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+      
+      <!-- Текстовый логотип (без картинки) -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-[#d4af37] text-black font-bold text-3xl flex items-center justify-center rounded-full">S</div>
+        <div>
+          <h1 class="heading text-3xl tracking-tighter text-white">SydorovClub</h1>
         </div>
+      </div>
+
+      <div class="flex gap-8 text-sm font-medium">
+        <a href="#about" class="nav-link">О нас</a>
+        <a href="#masters" class="nav-link">Мастера</a>
+        <a href="#services" class="nav-link">Услуги</a>
+        <a href="#gallery" class="nav-link">Галерея</a>
+      </div>
+
+      <a href="#booking" 
+         class="bg-[#d4af37] hover:bg-amber-600 text-black font-semibold px-8 py-3 rounded-2xl transition-all">
+        Записаться
+      </a>
     </div>
-</div>
-
-<header>
-    <a href="#" class="logo">
-        <i class="fas fa-scissors"></i>
-        <span>SYDOROF</span>
-    </a>
-
-    <div class="menu-toggle" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
+  </nav>
+    <!-- Hero -->
+  <section class="hero flex items-center justify-center text-center min-h-screen">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="heading text-6xl md:text-7xl font-bold leading-none mb-6">КЛАССИКА<br>МУЖСКОГО СТИЛЯ</h2>
+      <p class="text-2xl text-[#d4af37] mb-12">Белая Церковь • Твой стиль — наша репутация</p>
+      
+      <a href="#booking" 
+         class="inline-block bg-[#d4af37] hover:bg-amber-600 text-black font-semibold text-xl px-14 py-6 rounded-2xl transition-all">
+        Записаться сейчас
+      </a>
     </div>
+  </section>
 
-    <nav id="mobileNav">
-        <ul>
-            <li><a href="#about">Про нас</a></li>
-            <li><a href="#services">Услуги</a></li>
-            <li><a href="javascript:void(0)" onclick="openBarbers(event)">Мастера</a></li>
-            <li><a href="#contacts">Контакты</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main>
-    <section id="hero">
-        <h1>Классика мужского стиля</h1>
-        <p>Белая Церковь. Твой стиль — наша репутация.</p>
-        <!-- Эта кнопка нужна для записи через Telegram-бота -->
-        <a href="#services" class="btn-cta">Записаться</a>
-    </section>
-
-    <!-- остальной код (about, services и т.д.) оставь как был -->
-
-    <section id="about" class="reveal">
-        <div class="about-content">
-            <h2>Наша История</h2>
-            <div class="stats">
-                <div class="stat-item"><span>5</span>лет опыта</div>
-                <div class="stat-item"><span>3</span>топ-мастера</div>
-                <div class="stat-item"><span>100%</span>стиля</div>
-            </div>
-            <div class="story-text">
-                <p class="lead">Все началось 5 лет назад в самом сердце Белой Церкви. Мы мечтали о месте, где традиции классического бритья встречаются с ритмом современного города.</p>
-                <div class="story-grid">
-                    <div class="story-column">
-                        <h3>Как всё начиналось</h3>
-                        <p>На тихой улочке Ярослава Мудрого появилась наша первая вывеска. Мы начинали с одного кресла и желания вернуть культуру ухода за собой.</p>
-                    </div>
-                    <div class="story-column">
-                        <h3>Наши ценности</h3>
-                        <p>Сегодня у нас работают 3 фаната своего дела. Мы используем только премиальную косметику и верим в честный мужской разговор.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="reveal">
-        <div class="services-wrapper">
-            <h2 class="section-title">Услуги и Прайс</h2>
-            <div class="services-list">
-                <div class="service-column">
-                    <div class="service-item" onclick="openService('Мужская стрижка', 'Полный комплекс: мытье, стрижка и укладка.', '60 мин', '800 UAH')">
-                        <div class="service-info"><h3>Мужская стрижка</h3><p>Консультация, мытье, укладка</p></div>
-                        <span class="service-price">800UAH</span>
-                    </div>
-                    <div class="service-item" onclick="openService('Стрижка под машинку', 'Быстрая стрижка с четкими контурами.', '30 мин', '400 UAH')">
-                        <div class="service-info"><h3>Стрижка под машинку</h3><p>Одной или двумя насадками</p></div>
-                        <span class="service-price">400UAH</span>
-                    </div>
-                    <div class="service-item" onclick="openService('Укладка и стайлинг', 'Профессиональный стайлинг для мероприятия.', '20 мин', '200 UAH')">
-                        <div class="service-info"><h3>Укладка и стайлинг</h3><p>Особый случай</p></div>
-                        <span class="service-price">200UAH</span>
-                    </div>
-                    <div class="service-item" onclick="openService('Детская стрижка', 'Для джентльменов до 12 лет.', '45 мин', '600 UAH')">
-                        <div class="service-info"><h3>Детская стрижка</h3><p>До 12 лет</p></div>
-                        <span class="service-price">600UAH</span>
-                    </div>
-                </div>
-                <div class="service-column">
-                    <div class="service-item" onclick="openService('Моделирование бороды', 'Создание формы и уход маслом.', '40 мин', '500 UAH')">
-                        <div class="service-info"><h3>Моделирование бороды</h3><p>Форма, опасная бритва</p></div>
-                        <span class="service-price">500UAH</span>
-                    </div>
-                    <div class="service-item" onclick="openService('Королевское бритье', 'Традиционный ритуал распаривания.', '50 мин', '700 UAH')">
-                        <div class="service-info"><h3>Королевское бритье</h3><p>Классика бритья</p></div>
-                        <span class="service-price">700UAH</span>
-                    </div>
-                    <div class="service-item" onclick="openService('Камуфляж седины', 'Тонирование волос или бороды.', '30 мин', '600 UAH')">
-                        <div class="service-info"><h3>Камуфляж седины</h3><p>Натуральный эффект</p></div>
-                        <span class="service-price">600UAH</span>
-                    </div>
-                    <div class="service-item" onclick="openService('Отец + Сын', 'Комплексный визит для двоих.', '1.5-2 ч', '1200 UAH')">
-                        <div class="service-info"><h3>Отец + Сын</h3><p>Выгодный визит</p></div>
-                        <span class="service-price">1200UAH</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer id="contacts">
-  <div id="teamModal" style="display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); overflow-y: auto;">
-    <div style="background: #111; margin: 20px auto; padding: 40px 10px; border: 1px solid #D27D46; width: 95%; max-width: 1100px; text-align: center; position: relative; color: #fff;">
-        <span onclick="closeModal()" style="position: absolute; right: 20px; top: 10px; color: #fff; font-size: 45px; cursor: pointer;">&times;</span>
-        <h2 style="font-family: 'Oswald', sans-serif; color: #D27D46; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px;">НАШИ МАСТЕРА</h2>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-            <div style="width: 300px; border: 1px solid #333; padding: 20px; background: #000; box-sizing: border-box;">
-                <div style="width: 100%; height: 320px; border-bottom: 2px solid #D27D46; overflow: hidden; margin-bottom: 15px;">
-                    <img src="barber1.jpg" alt="Иван Гамоюнов" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h3 style="font-family: 'Oswald'; font-size: 22px; margin-bottom: 5px;">Иван Гамоюнов</h3>
-                <p style="color: #D27D46; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">Top Barber / Основатель</p>
-                <p style="color: #aaa; font-size: 14px; min-height: 60px;">Мастер с огромным опытом, знает всё о классических стрижках.</p>
-                <button onclick="closeModal(); openBooking();" style="background: #D27D46; color: #fff; border: none; padding: 12px; width: 100%; cursor: pointer; font-family: 'Oswald';">ЗАПИСАТЬСЯ</button>
-            </div>
-
-            <div style="width: 300px; border: 1px solid #333; padding: 20px; background: #000; box-sizing: border-box;">
-                <div style="width: 100%; height: 320px; border-bottom: 2px solid #D27D46; overflow: hidden; margin-bottom: 15px;">
-                    <img src="barber2.jpg" alt="Дмитрий Ахмедов" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h3 style="font-family: 'Oswald'; font-size: 22px; margin-bottom: 5px;">Дмитрий Ахмедов</h3>
-                <p style="color: #D27D46; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">Pro Barber</p>
-                <p style="color: #aaa; font-size: 14px; min-height: 60px;">Специалист по современным фейдам и оформлению бороды.</p>
-                <button onclick="closeModal(); openBooking();" style="background: #D27D46; color: #fff; border: none; padding: 12px; width: 100%; cursor: pointer; font-family: 'Oswald';">ЗАПИСАТЬСЯ</button>
-            </div>
-
-            <div style="width: 300px; border: 1px solid #333; padding: 20px; background: #000; box-sizing: border-box;">
-                <div style="width: 100%; height: 320px; border-bottom: 2px solid #D27D46; overflow: hidden; margin-bottom: 15px;">
-                    <img src="barber3.jpg" alt="Александр Белов" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h3 style="font-family: 'Oswald'; font-size: 22px; margin-bottom: 5px;">Александр Белов</h3>
-                <p style="color: #D27D46; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">Senior Barber</p>
-                <p style="color: #aaa; font-size: 14px; min-height: 60px;">Профессионал, который подберет идеальную прическу под твой тип лица.</p>
-                <button onclick="closeModal(); openBooking();" style="background: #D27D46; color: #fff; border: none; padding: 12px; width: 100%; cursor: pointer; font-family: 'Oswald';">ЗАПИСАТЬСЯ</button>
-            </div>
-        </div> 
-    </div> 
-  </div>
-
-    <div class="footer-container">
-        <div class="footer-box">
-            <h3>SydorovClub</h3>
-            <p>Белая Церковь, ул. Ярослава Мудрого, 15</p>
-        </div>
-        <div class="footer-box">
-            <h3>Мы в сети</h3>
-            <div class="social-links">
-                <a href="https://instagram.com/zakrouokno" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="https://t.me/artandrew1" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
-            </div>
-        </div>
+  <!-- Наша История -->
+  <section id="about" class="py-24 bg-[#121212]">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="heading text-5xl font-bold mb-4">Наша История</h2>
+      </div>
+      <div class="max-w-3xl mx-auto text-lg leading-relaxed space-y-8 text-gray-300">
+        <p>Все началось 5 лет назад в самом сердце Белой Церкви. Мы мечтали о месте, где традиции классического бритья встречаются с ритмом современного города.</p>
+        <p>На тихой улочке Ярослава Мудрого появилась наша первая вывеска. Мы начинали с одного кресла и желания вернуть культуру ухода за собой.</p>
+        <p>Сегодня у нас работают 3 фаната своего дела. Мы используем только премиальную косметику и верим в честный мужской разговор.</p>
+      </div>
     </div>
-    <!-- НОВАЯ КНОПКА С ЗАПИСЬЮ + СЕТИ (внизу страницы) -->
-<div class="fixed-bottom-bar">
-    <a href="https://t.me/artandrew1" target="_blank" class="social-btn tg">
-        <i class="fab fa-telegram-plane"></i>
-    </a>
-    <a href="https://instagram.com/zakrouokno" target="_blank" class="social-btn inst">
-        <i class="fab fa-instagram"></i>
-    </a>
-    <button onclick="openBooking()" class="record-btn">
-        <i class="fas fa-scissors"></i> ЗАПИСАТЬСЯ
-    </button>
-</div>
-</footer>
+  </section>
 
-<button class="sydorov-btn-minimal" onclick="openBooking()">
-    <i class="fas fa-scissors"></i> <span>ЗАПИСАТЬСЯ</span>
-</button>
+  <!-- Услуги -->
+  <section id="services" class="py-24 bg-[#0a0a0a]">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="heading text-5xl font-bold mb-4">Услуги и Прайс</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+          <h3 class="text-2xl font-semibold">Мужская стрижка</h3>
+          <p class="text-gray-400 mt-2 mb-6">Консультация, мытье, укладка</p>
+          <p class="text-4xl font-bold text-[#d4af37]">800 ₴</p>
+        </div>
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+          <h3 class="text-2xl font-semibold">Стрижка под машинку</h3>
+          <p class="text-gray-400 mt-2 mb-6">Одной или двумя насадками</p>
+          <p class="text-4xl font-bold text-[#d4af37]">400 ₴</p>
+        </div>
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+          <h3 class="text-2xl font-semibold">Укладка и стайлинг</h3>
+          <p class="text-gray-400 mt-2 mb-6">Особый случай</p>
+          <p class="text-4xl font-bold text-[#d4af37]">200 ₴</p>
+        </div>
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+          <h3 class="text-2xl font-semibold">Детская стрижка</h3>
+          <p class="text-gray-400 mt-2 mb-6">До 12 лет</p>
+          <p class="text-4xl font-bold text-[#d4af37]">600 ₴</p>
+        </div>
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+          <h3 class="text-2xl font-semibold">Моделирование бороды</h3>
+          <p class="text-gray-400 mt-2 mb-6">Форма, опасная бритва</p>
+          <p class="text-4xl font-bold text-[#d4af37]">500 ₴</p>
+        </div>
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+          <h3 class="text-2xl font-semibold">Королевское бритье</h3>
+          <p class="text-gray-400 mt-2 mb-6">Классика бритья</p>
+          <p class="text-4xl font-bold text-[#d4af37]">700 ₴</p>
+        </div>
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+          <h3 class="text-2xl font-semibold">Камуфляж седины</h3>
+          <p class="text-gray-400 mt-2 mb-6">Натуральный эффект</p>
+          <p class="text-4xl font-bold text-[#d4af37]">600 ₴</p>
+        </div>
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+          <h3 class="text-2xl font-semibold">Отец + Сын</h3>
+          <p class="text-gray-400 mt-2 mb-6">Выгодный визит</p>
+          <p class="text-4xl font-bold text-[#d4af37]">1200 ₴</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div id="bookingModal" class="modal" style="display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);">
-    <div class="modal-content" style="background: #1a1a1a; margin: 10% auto; padding: 30px; border: 1px solid #D27D46; width: 90%; max-width: 400px; text-align: center; position: relative;">
-        <span class="close-button" onclick="closeBooking()" style="position: absolute; right: 20px; top: 10px; color: #fff; font-size: 30px; cursor: pointer;">×</span>
-        <h2 style="font-family: 'Oswald', sans-serif; color: #D27D46; margin-bottom: 20px; letter-spacing: 2px;">ОНЛАЙН ЗАПИСЬ</h2>
-        
-        <form id="tgForm">
-            <input type="text" id="userName" placeholder="Твое имя" required 
-                   style="width: 100%; padding: 12px; margin-bottom: 10px; background: #000; border: 1px solid #333; color: #fff;">
-            <input type="tel" id="userPhone" placeholder="+380" required 
-                   style="width: 100%; padding: 12px; margin-bottom: 20px; background: #000; border: 1px solid #333; color: #fff;">
-            <button type="submit" style="width: 100%; padding: 15px; background: #D27D46; color: #fff; border: none; cursor: pointer; font-family: 'Oswald'; font-weight: bold; letter-spacing: 1px;">ОТПРАВИТЬ ЗАЯВКУ</button>
+    <!-- ====================== ГАЛЕРЕЯ РАБОТ ====================== -->
+  <section id="gallery" class="py-24 bg-[#0a0a0a]">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="heading text-5xl font-bold mb-4">Галерея работ</h2>
+        <p class="text-[#d4af37] text-xl">Результаты, которыми мы гордимся</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900">
+          <img src="./images/strizhka1.jpg" alt="Классическая стрижка" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+            <p class="text-white text-xl font-semibold">Классическая стрижка</p>
+            <p class="text-[#d4af37] text-sm">Иван Гамоюнов</p>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900">
+          <img src="./images/britje.jpg" alt="Королевское бритьё" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+            <p class="text-white text-xl font-semibold">Королевское бритьё</p>
+            <p class="text-[#d4af37] text-sm">Александр Белов</p>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900">
+          <img src="./images/boroda.jpg" alt="Моделирование бороды" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+            <p class="text-white text-xl font-semibold">Моделирование бороды</p>
+            <p class="text-[#d4af37] text-sm">Дмитрий Ахмедов</p>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900">
+          <img src="./images/fade.jpg" alt="Современный фейд" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+            <p class="text-white text-xl font-semibold">Современный фейд</p>
+            <p class="text-[#d4af37] text-sm">Александр Белов</p>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900">
+          <img src="./images/deti.jpg" alt="Детская стрижка" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+            <p class="text-white text-xl font-semibold">Детская стрижка</p>
+            <p class="text-[#d4af37] text-sm">Дмитрий Ахмедов</p>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900">
+          <img src="./images/otets-syn.jpg" alt="Отец и сын" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+            <p class="text-white text-xl font-semibold">Пакет Отец + Сын</p>
+            <p class="text-[#d4af37] text-sm">Семейный визит</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    <!-- ====================== НАШИ МАСТЕРА ====================== -->
+  <section id="masters" class="py-24 bg-[#121212]">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="heading text-5xl font-bold mb-4">Наши Мастера</h2>
+        <p class="text-[#d4af37] text-xl">Профессионалы, которые создают твой стиль</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Мастер 1 -->
+        <div class="group bg-[#1a1a1a] rounded-3xl overflow-hidden border border-transparent hover:border-[#d4af37] transition-all duration-300">
+          <div class="relative h-80 overflow-hidden">
+            <img src="./images/barber1.jpg" 
+                 alt="Иван Гамоюнов" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold mb-1">Иван Гамоюнов</h3>
+            <p class="text-[#d4af37] mb-5">Основатель • 7 лет опыта</p>
+            <p class="text-gray-400 text-sm">Классические стрижки, королевское бритьё, моделирование бороды.</p>
+          </div>
+        </div>
+
+        <!-- Мастер 2 -->
+        <div class="group bg-[#1a1a1a] rounded-3xl overflow-hidden border border-transparent hover:border-[#d4af37] transition-all duration-300">
+          <div class="relative h-80 overflow-hidden">
+            <img src="./images/barber2.jpg" 
+                 alt="Александр Белов" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold mb-1">Александр Белов</h3>
+            <p class="text-[#d4af37] mb-5">Мастер-барбер • 5 лет опыта</p>
+            <p class="text-gray-400 text-sm">Современные фейды, креативные стрижки и укладки.</p>
+          </div>
+        </div>
+
+        <!-- Мастер 3 -->
+        <div class="group bg-[#1a1a1a] rounded-3xl overflow-hidden border border-transparent hover:border-[#d4af37] transition-all duration-300">
+          <div class="relative h-80 overflow-hidden">
+            <img src="./images/barber3.jpg" 
+                 alt="Дмитрий Ахмедов" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold mb-1">Дмитрий Ахмедов</h3>
+            <p class="text-[#d4af37] mb-5">Барбер • 4 года опыта</p>
+            <p class="text-gray-400 text-sm">Детские стрижки, работа с бородой, пакет "Отец + Сын".</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <footer class="bg-black py-12 text-center text-gray-500">
+    <p>ул. Ярослава Мудрого, Белая Церковь • SydorovClub 2026</p>
+  </footer>
+  <  <!-- ====================== ЗАПИСАТЬСЯ ====================== -->
+  <section id="booking" class="py-24 bg-[#121212]">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="heading text-5xl font-bold mb-4">Записаться на стрижку</h2>
+        <p class="text-[#d4af37] text-xl">Выберите удобное время — мы будем рады вас видеть</p>
+      </div>
+
+      <div class="bg-[#1a1a1a] rounded-3xl p-10 md:p-12">
+        <form id="booking-form" class="space-y-8">
+          
+          <div>
+            <label class="block text-sm text-gray-400 mb-2">Выберите услугу</label>
+            <select id="service" class="w-full bg-black border border-[#d4af37]/30 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#d4af37]">
+              <option value="">— Выберите услугу —</option>
+              <option value="Мужская стрижка">Мужская стрижка — 800 ₴</option>
+              <option value="Моделирование бороды">Моделирование бороды — 500 ₴</option>
+              <option value="Королевское бритьё">Королевское бритьё — 700 ₴</option>
+              <option value="Отец + Сын">Отец + Сын — 1200 ₴</option>
+              <option value="Детская стрижка">Детская стрижка — 600 ₴</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm text-gray-400 mb-2">Выберите мастера</label>
+            <select id="master" class="w-full bg-black border border-[#d4af37]/30 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#d4af37]">
+              <option value="">— Любой мастер —</option>
+              <option value="Иван Гамоюнов">Иван Гамоюнов</option>
+              <option value="Александр Белов">Александр Белов</option>
+              <option value="Дмитрий Ахмедов">Дмитрий Ахмедов</option>
+            </select>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">Ваше имя</label>
+              <input type="text" id="name" placeholder="Как к вам обращаться?" 
+                     class="w-full bg-black border border-[#d4af37]/30 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#d4af37]">
+            </div>
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">Телефон</label>
+              <input type="tel" id="phone" placeholder="+380 XX XXX XX XX" 
+                     class="w-full bg-black border border-[#d4af37]/30 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#d4af37]">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm text-gray-400 mb-2">Комментарий (необязательно)</label>
+            <textarea id="comment" rows="3" placeholder="Удобное время, пожелания..."
+                      class="w-full bg-black border border-[#d4af37]/30 rounded-3xl px-6 py-4 text-white focus:outline-none focus:border-[#d4af37]"></textarea>
+          </div>
+
+          <button type="button" onclick="sendBooking()"
+                  class="w-full bg-[#d4af37] hover:bg-amber-600 text-black font-semibold text-xl py-6 rounded-2xl transition-all">
+            Отправить заявку
+          </button>
         </form>
+      </div>
+
+      <p class="text-center text-gray-500 mt-10">
+        Или напишите нам в Telegram: 
+        <a href="https://t.me/artandrew1" target="_blank" class="text-[#d4af37] hover:underline">@artandrew1</a>
+      </p>
     </div>
-</div>
-
-<script>
-    // 1. АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
-        }
-    }
-    window.addEventListener("scroll", reveal);
-    reveal();
-
-    // 2. МОБИЛЬНОЕ МЕНЮ
-    function toggleMenu() {
-        const nav = document.getElementById('mobileNav');
-        nav.classList.toggle('active');
-    }
-
-    // 3. УПРАВЛЕНИЕ ВСЕМИ ОКНАМИ (ОТКРЫТЬ/ЗАКРЫТЬ)
-    function openBooking() {
-        document.getElementById("bookingModal").style.display = "block";
-        document.body.style.overflow = "hidden";
-    }
-
-    function closeBooking() {
-        document.getElementById("bookingModal").style.display = "none";
-        document.body.style.overflow = "auto";
-    }
-
-    function openBarbers(e) {
-        if (e) e.preventDefault();
-        document.getElementById("teamModal").style.display = "block";
-        document.body.style.overflow = "hidden";
-    }
-
-    function closeModal() {
-        document.getElementById("teamModal").style.display = "none";
-        document.body.style.overflow = "auto";
-    }
-
-    function openService(title, desc, time, price) {
-        document.getElementById("modalServiceTitle").innerText = title;
-        document.getElementById("modalServiceDescription").innerText = desc;
-        document.getElementById("modalServiceTime").innerText = time;
-        document.getElementById("modalServicePrice").innerText = price;
-        document.getElementById("serviceModal").style.display = "block";
-        document.body.style.overflow = "hidden";
-    }
-
-    function closeServiceModal() {
-        document.getElementById("serviceModal").style.display = "none";
-        document.body.style.overflow = "auto";
-    }
-
-    // 4. ОТПРАВКА В TELEGRAM
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('tgForm');
-        if (form) {
-            form.onsubmit = function(e) {
-                e.preventDefault();
-                
-                const token = '8720463887:AAGLJduimu-XgIhZ0wLENnxI9hM33Mq0dZ0';
-                const chat_id = '7472418224';
-                const name = document.getElementById('userName').value;
-                const phone = document.getElementById('userPhone').value;
-                
-                const text = `🔔 Новая запись!\n👤 Имя: ${name}\n📞 Тел: ${phone}`;
-                const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}&parse_mode=html`;
-
-                fetch(url)
-                .then(res => {
-                    if (res.ok) {
-                        alert('Заявка отправлена! Мы скоро свяжемся.');
-                        closeBooking();
-                        form.reset();
-                    } else {
-                        alert('Ошибка отправки. Проверьте настройки бота.');
-                    }
-                })
-                .catch(() => alert('Техническая ошибка. Проверьте интернет.'));
-            };
-        }
-    });
-
-    // 5. ЗАКРЫТИЕ ПО КЛИКУ ВНЕ ОКНА
-    window.onclick = function(event) {
-        const team = document.getElementById("teamModal");
-        const service = document.getElementById("serviceModal");
-        const booking = document.getElementById("bookingModal");
-        
-        if (event.target == team) closeModal();
-        if (event.target == service) closeServiceModal();
-        if (event.target == booking) closeBooking();
-    }
-</script>
-
+  </section>
 </body>
 </html>
+
