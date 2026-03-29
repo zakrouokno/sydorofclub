@@ -20,31 +20,14 @@
 </head>
 <body class="bg-[#0a0a0a] text-[#f5f5f5]">
 
-    <!-- Адаптивный Навбар -->
+     <!-- Навбар -->
   <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-md z-50 border-b border-[#d4af37]/30">
-    <div class="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
-      
-      <!-- Логотип -->
+    <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
       <div class="flex items-center gap-3">
-        <div class="w-9 h-9 bg-[#d4af37] text-black font-bold text-2xl flex items-center justify-center rounded-full flex-shrink-0">S</div>
-        <h1 class="heading text-xl md:text-2xl tracking-tight">SydorovClub</h1>
+        <div class="w-10 h-10 bg-[#d4af37] text-black font-bold text-2xl flex items-center justify-center rounded-full">S</div>
+        <h1 class="heading text-2xl tracking-tight">SydorovClub</h1>
       </div>
 
-      <!-- Меню для десктопа -->
-      <div class="hidden md:flex gap-7 text-sm font-medium">
-        <a href="#about" class="nav-link">О нас</a>
-        <a href="#masters" class="nav-link">Мастера</a>
-        <a href="#services" class="nav-link">Услуги</a>
-        <a href="#gallery" class="nav-link">Галерея</a>
-      </div>
-
-      <!-- Кнопка Записаться -->
-      <a href="#booking" 
-         class="bg-[#d4af37] hover:bg-amber-600 text-black font-semibold px-6 py-3 rounded-2xl transition-all text-sm md:text-base whitespace-nowrap">
-        Записаться
-      </a>
-    </div>
-  </nav>
       <div class="flex gap-8 text-sm font-medium">
         <a href="#about" class="nav-link">О нас</a>
         <a href="#masters" class="nav-link">Мастера</a>
@@ -52,10 +35,11 @@
         <a href="#gallery" class="nav-link">Галерея</a>
       </div>
 
-      <a href="#booking" 
-         class="bg-[#d4af37] hover:bg-amber-600 text-black font-semibold px-8 py-3 rounded-2xl transition-all">
+      <!-- Кнопка, которая открывает модальное окно -->
+      <button onclick="openBookingModal()" 
+              class="bg-[#d4af37] hover:bg-amber-600 text-black font-semibold px-8 py-3 rounded-2xl transition-all">
         Записаться
-      </a>
+      </button>
     </div>
   </nav>
     <!-- Hero -->
@@ -258,66 +242,7 @@
   <footer class="bg-black py-12 text-center text-gray-500">
     <p>ул. Ярослава Мудрого, Белая Церковь • SydorovClub 2026</p>
   </footer>
-      <!-- ====================== ЗАПИСАТЬСЯ (адаптивная) ====================== -->
-  <section id="booking" class="py-20 md:py-24 bg-[#121212]">
-    <div class="max-w-lg mx-auto px-5 md:px-6">
-      <div class="text-center mb-12">
-        <h2 class="heading text-4xl md:text-5xl font-bold mb-4">Записаться на стрижку</h2>
-        <p class="text-[#d4af37] text-lg">Выберите удобное время — мы будем рады вас видеть</p>
-      </div>
-
-      <div class="bg-[#1a1a1a] rounded-3xl p-8 md:p-12">
-        <form id="booking-form" class="space-y-7">
-
-          <div>
-            <label class="block text-sm text-gray-400 mb-2">Услуга</label>
-            <select id="service" class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-[#d4af37]">
-              <option value="">— Выберите услугу —</option>
-              <option value="Мужская стрижка">Мужская стрижка — 800 ₴</option>
-              <option value="Моделирование бороды">Моделирование бороды — 500 ₴</option>
-              <option value="Королевское бритьё">Королевское бритьё — 700 ₴</option>
-              <option value="Отец + Сын">Отец + Сын — 1200 ₴</option>
-              <option value="Детская стрижка">Детская стрижка — 600 ₴</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-sm text-gray-400 mb-2">Мастер</label>
-            <select id="master" class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-[#d4af37]">
-              <option value="">— Любой мастер —</option>
-              <option value="Иван Гамоюнов">Иван Гамоюнов</option>
-              <option value="Александр Белов">Александр Белов</option>
-              <option value="Дмитрий Ахмедов">Дмитрий Ахмедов</option>
-            </select>
-          </div>
-
-          <div class="grid grid-cols-1 gap-6">
-            <div>
-              <label class="block text-sm text-gray-400 mb-2">Имя</label>
-              <input type="text" id="name" placeholder="Ваше имя" 
-                     class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-5 py-4 text-white">
-            </div>
-            <div>
-              <label class="block text-sm text-gray-400 mb-2">Телефон</label>
-              <input type="tel" id="phone" placeholder="+380 XX XXX XX XX" 
-                     class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-5 py-4 text-white">
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-sm text-gray-400 mb-2">Комментарий</label>
-            <textarea id="comment" rows="3" placeholder="Удобное время или пожелания..." 
-                      class="w-full bg-black border border-[#d4af37]/40 rounded-3xl px-5 py-4 text-white resize-y"></textarea>
-          </div>
-
-          <button type="button" onclick="sendBooking()" 
-                  class="w-full bg-[#d4af37] hover:bg-amber-600 text-black font-semibold text-lg py-6 rounded-2xl transition-all mt-4">
-            Отправить заявку
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
+  
      <!-- JavaScript для отправки в Telegram-бота -->
   <script>
     async function sendBooking() {
@@ -382,6 +307,88 @@
       }
     }
   </script>
+    <!-- Модальное окно записи -->
+  <div id="bookingModal" class="fixed inset-0 bg-black/80 hidden flex items-center justify-center z-[100] p-4">
+    <div class="bg-[#1a1a1a] rounded-3xl w-full max-w-lg overflow-hidden">
+      
+      <!-- Заголовок модального окна -->
+      <div class="flex justify-between items-center border-b border-[#d4af37]/20 px-8 py-6">
+        <h2 class="heading text-3xl font-bold">Записаться</h2>
+        <button onclick="closeBookingModal()" 
+                class="text-3xl text-gray-400 hover:text-white transition-colors">×</button>
+      </div>
+
+      <div class="p-8 md:p-10">
+        <form id="booking-form" class="space-y-7">
+          <div>
+            <label class="block text-sm text-gray-400 mb-2">Услуга</label>
+            <select id="service" class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-4 text-white">
+              <option value="">— Выберите услугу —</option>
+              <option value="Мужская стрижка">Мужская стрижка — 800 ₴</option>
+              <option value="Моделирование бороды">Моделирование бороды — 500 ₴</option>
+              <option value="Королевское бритьё">Королевское бритьё — 700 ₴</option>
+              <option value="Отец + Сын">Отец + Сын — 1200 ₴</option>
+              <option value="Детская стрижка">Детская стрижка — 600 ₴</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm text-gray-400 mb-2">Мастер</label>
+            <select id="master" class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-4 text-white">
+              <option value="">— Любой мастер —</option>
+              <option value="Иван Гамоюнов">Иван Гамоюнов</option>
+              <option value="Александр Белов">Александр Белов</option>
+              <option value="Дмитрий Ахмедов">Дмитрий Ахмедов</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 gap-6">
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">Имя</label>
+              <input type="text" id="name" placeholder="Ваше имя" class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-4 text-white">
+            </div>
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">Телефон</label>
+              <input type="tel" id="phone" placeholder="+380 XX XXX XX XX" class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-4 text-white">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm text-gray-400 mb-2">Комментарий</label>
+            <textarea id="comment" rows="3" placeholder="Удобное время или пожелания..." 
+                      class="w-full bg-black border border-[#d4af37]/40 rounded-3xl px-6 py-4 text-white"></textarea>
+          </div>
+
+          <button type="button" onclick="sendBooking()" 
+                  class="w-full bg-[#d4af37] hover:bg-amber-600 text-black font-semibold text-lg py-6 rounded-2xl transition-all">
+            Отправить заявку
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript для модального окна -->
+  <script>
+    function openBookingModal() {
+      document.getElementById('bookingModal').classList.remove('hidden');
+      document.getElementById('bookingModal').classList.add('flex');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.add('hidden');
+      document.getElementById('bookingModal').classList.remove('flex');
+    }
+
+    // Закрытие по клику вне окна
+    document.getElementById('bookingModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeBookingModal();
+      }
+    });
+  </script>
 </body>
 </html>
+
+
 
