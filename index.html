@@ -245,20 +245,22 @@
   <footer class="bg-black py-12 text-center text-gray-500">
     <p>ул. Ярослава Мудрого, Белая Церковь • SydorovClub 2026</p>
   </footer>
-  <  <!-- ====================== ЗАПИСАТЬСЯ ====================== -->
+    <!-- ====================== ЗАПИСАТЬСЯ (улучшенная версия) ====================== -->
   <section id="booking" class="py-24 bg-[#121212]">
-    <div class="max-w-4xl mx-auto px-6">
+    <div class="max-w-3xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="heading text-5xl font-bold mb-4">Записаться на стрижку</h2>
         <p class="text-[#d4af37] text-xl">Выберите удобное время — мы будем рады вас видеть</p>
       </div>
 
-      <div class="bg-[#1a1a1a] rounded-3xl p-10 md:p-12">
+      <div class="bg-[#1a1a1a] rounded-3xl p-10 md:p-14 shadow-2xl border border-[#d4af37]/10">
         <form id="booking-form" class="space-y-8">
-          
+
+          <!-- Услуга -->
           <div>
-            <label class="block text-sm text-gray-400 mb-2">Выберите услугу</label>
-            <select id="service" class="w-full bg-black border border-[#d4af37]/30 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#d4af37]">
+            <label class="block text-sm text-gray-400 mb-3">Выберите услугу</label>
+            <select id="service" 
+                    class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-5 text-white focus:outline-none focus:border-[#d4af37] transition-all">
               <option value="">— Выберите услугу —</option>
               <option value="Мужская стрижка">Мужская стрижка — 800 ₴</option>
               <option value="Моделирование бороды">Моделирование бороды — 500 ₴</option>
@@ -268,9 +270,11 @@
             </select>
           </div>
 
+          <!-- Мастер -->
           <div>
-            <label class="block text-sm text-gray-400 mb-2">Выберите мастера</label>
-            <select id="master" class="w-full bg-black border border-[#d4af37]/30 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#d4af37]">
+            <label class="block text-sm text-gray-400 mb-3">Выберите мастера</label>
+            <select id="master" 
+                    class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-5 text-white focus:outline-none focus:border-[#d4af37] transition-all">
               <option value="">— Любой мастер —</option>
               <option value="Иван Гамоюнов">Иван Гамоюнов</option>
               <option value="Александр Белов">Александр Белов</option>
@@ -278,38 +282,105 @@
             </select>
           </div>
 
+          <!-- Имя и Телефон -->
           <div class="grid md:grid-cols-2 gap-6">
             <div>
-              <label class="block text-sm text-gray-400 mb-2">Ваше имя</label>
+              <label class="block text-sm text-gray-400 mb-3">Ваше имя</label>
               <input type="text" id="name" placeholder="Как к вам обращаться?" 
-                     class="w-full bg-black border border-[#d4af37]/30 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#d4af37]">
+                     class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-5 text-white focus:outline-none focus:border-[#d4af37]">
             </div>
             <div>
-              <label class="block text-sm text-gray-400 mb-2">Телефон</label>
+              <label class="block text-sm text-gray-400 mb-3">Телефон</label>
               <input type="tel" id="phone" placeholder="+380 XX XXX XX XX" 
-                     class="w-full bg-black border border-[#d4af37]/30 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#d4af37]">
+                     class="w-full bg-black border border-[#d4af37]/40 rounded-2xl px-6 py-5 text-white focus:outline-none focus:border-[#d4af37]">
             </div>
           </div>
 
+          <!-- Комментарий -->
           <div>
-            <label class="block text-sm text-gray-400 mb-2">Комментарий (необязательно)</label>
-            <textarea id="comment" rows="3" placeholder="Удобное время, пожелания..."
-                      class="w-full bg-black border border-[#d4af37]/30 rounded-3xl px-6 py-4 text-white focus:outline-none focus:border-[#d4af37]"></textarea>
+            <label class="block text-sm text-gray-400 mb-3">Комментарий или пожелания</label>
+            <textarea id="comment" rows="4" placeholder="Удобное время, особые пожелания..."
+                      class="w-full bg-black border border-[#d4af37]/40 rounded-3xl px-6 py-5 text-white focus:outline-none focus:border-[#d4af37] resize-y"></textarea>
           </div>
 
+          <!-- Кнопка -->
           <button type="button" onclick="sendBooking()"
-                  class="w-full bg-[#d4af37] hover:bg-amber-600 text-black font-semibold text-xl py-6 rounded-2xl transition-all">
+                  class="w-full bg-[#d4af37] hover:bg-amber-600 active:scale-95 text-black font-semibold text-xl py-7 rounded-2xl transition-all duration-200 mt-6">
             Отправить заявку
           </button>
         </form>
       </div>
 
-      <p class="text-center text-gray-500 mt-10">
-        Или напишите нам в Telegram: 
+      <p class="text-center text-gray-500 mt-10 text-sm">
+        Или напишите нам напрямую в Telegram → 
         <a href="https://t.me/artandrew1" target="_blank" class="text-[#d4af37] hover:underline">@artandrew1</a>
       </p>
     </div>
   </section>
+     <!-- JavaScript для отправки в Telegram-бота -->
+  <script>
+    async function sendBooking() {
+      const service = document.getElementById('service').value;
+      const master = document.getElementById('master').value;
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const comment = document.getElementById('comment').value.trim();
+
+      // Проверка обязательных полей
+      if (!name) {
+        alert('Пожалуйста, введите ваше имя');
+        return;
+      }
+      if (!phone) {
+        alert('Пожалуйста, введите телефон');
+        return;
+      }
+      if (!service) {
+        alert('Пожалуйста, выберите услугу');
+        return;
+      }
+
+      const message = `
+🪒 *Новая запись в SydorovClub!*
+
+👤 *Имя:* ${name}
+📞 *Телефон:* ${phone}
+✂️ *Услуга:* ${service}
+👨‍🦰 *Мастер:* ${master || 'Любой мастер'}
+💬 *Комментарий:* ${comment || '—'}
+🕒 *Время отправки:* ${new Date().toLocaleString('ru-RU')}
+      `.trim();
+
+      // ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
+      // ВСТАВЬ СЮДА СВОЙ ТОКЕН БОТА
+      const BOT_TOKEN = "8720463887:AAGLJduimu-XgIhZ0wLENnxI9hM33Mq0dZ0";   // ← ИЗМЕНИ НА СВОЙ
+      const CHAT_ID = "7472418224";                                   // ← ИЗМЕНИ НА СВОЙ
+
+      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message,
+            parse_mode: 'Markdown'
+          })
+        });
+
+        if (response.ok) {
+          alert('✅ Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+          document.getElementById('booking-form').reset();
+        } else {
+          alert('Ошибка отправки. Попробуйте позже или напишите в Telegram.');
+        }
+      } catch (error) {
+        alert('Не удалось отправить заявку. Проверьте интернет или напишите нам напрямую.');
+        console.error(error);
+      }
+    }
+  </script>
 </body>
 </html>
 
