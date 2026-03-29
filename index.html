@@ -425,8 +425,169 @@
       mobileMenu.classList.add('hidden');
     }
   </script>
+      <!-- ====================== КОНТАКТЫ (финальная версия) ====================== -->
+   <!-- ====================== КОНТАКТЫ (с красивыми иконками) ====================== -->
+  <section id="contacts" class="py-20 md:py-24 bg-black">
+    <div class="max-w-6xl mx-auto px-5 md:px-6">
+      <div class="text-center mb-16">
+        <h2 class="heading text-4xl md:text-5xl font-bold mb-4">Контакты</h2>
+        <p class="text-[#d4af37] text-lg">Будем рады видеть вас в нашем барбершопе</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16">
+        
+        <!-- Левая колонка -->
+        <div class="space-y-12">
+          
+          <!-- Адрес -->
+          <div>
+            <h3 class="text-[#d4af37] text-xl font-semibold mb-4">Адрес</h3>
+            <p class="text-lg">
+              ул. Ярослава Мудрого, 10<br>
+              Белая Церковь, Киевская область
+            </p>
+          </div>
+
+          <!-- Часы работы -->
+          <div>
+            <h3 class="text-[#d4af37] text-xl font-semibold mb-4">Часы работы</h3>
+            <div class="text-lg space-y-1">
+              <p>Пн — Вс: <span class="text-white">10:00 — 20:00</span></p>
+              <p class="text-amber-400">Выходной: Понедельник</p>
+            </div>
+          </div>
+
+          <!-- Связаться с нами -->
+          <div>
+            <h3 class="text-[#d4af37] text-xl font-semibold mb-6">Связаться с нами</h3>
+            
+            <div class="space-y-7">
+              <!-- Телефон -->
+              <a href="tel:+380XXXXXXXXX" class="flex items-center gap-5 group">
+                <div class="w-12 h-12 bg-[#25D366]/10 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-[#25D366]/20 transition-colors">
+                  📱
+                </div>
+                <div>
+                  <p class="text-lg font-medium">+380 XX XXX XX XX</p>
+                  <p class="text-sm text-gray-500">Телефон</p>
+                </div>
+              </a>
+
+              <!-- Telegram -->
+              <a href="https://t.me/artandrew1" target="_blank" class="flex items-center gap-5 group">
+                <div class="w-12 h-12 bg-[#229ED9]/10 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-[#229ED9]/20 transition-colors">
+                  ✈️
+                </div>
+                <div>
+                  <p class="text-lg font-medium">@artandrew1</p>
+                  <p class="text-sm text-gray-500">Telegram</p>
+                </div>
+              </a>
+
+              <!-- Instagram -->
+              <a href="https://instagram.com/sydorovclub" target="_blank" class="flex items-center gap-5 group">
+                <div class="w-12 h-12 bg-gradient-to-tr from-[#f56040] via-[#c13584] to-[#405de6] rounded-2xl flex items-center justify-center text-2xl text-white group-hover:brightness-110 transition-all">
+                  📸
+                </div>
+                <div>
+                  <p class="text-lg font-medium">@sydorovclub</p>
+                  <p class="text-sm text-gray-500">Instagram</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карта + кнопки -->
+        <div>
+          <div class="rounded-3xl overflow-hidden border border-[#d4af37]/20 shadow-2xl h-[340px] md:h-[420px] mb-8">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2544.123!2d30.123!3d49.123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDA3JzI0LjAiTiAzMMKwMDcnMjQuMCJF!5e0!3m2!1sru!2sua!4v1234567890123" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://maps.google.com/?q=ул.+Ярослава+Мудрого,+10,+Белая+Церковь" 
+               target="_blank"
+               class="flex-1 bg-[#d4af37] hover:bg-amber-600 text-black font-semibold py-5 rounded-2xl flex items-center justify-center gap-3 transition-all">
+              Открыть в Google Maps
+            </a>
+            
+            <a href="https://maps.apple.com/?q=ул.+Ярослава+Мудрого,+10,+Белая+Церковь" 
+               target="_blank"
+               class="flex-1 bg-white/10 hover:bg-white/20 border border-white/40 font-semibold py-5 rounded-2xl flex items-center justify-center gap-3 transition-all">
+              Открыть в Apple Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </section>
+    <!-- ====================== ФУТЕР ====================== -->
+  <footer class="bg-black py-16 border-t border-[#d4af37]/20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-12">
+        
+        <!-- Колонка 1 - Лого и описание -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-[#d4af37] text-black font-bold text-3xl flex items-center justify-center rounded-full">S</div>
+            <h2 class="heading text-2xl">SydorovClub</h2>
+          </div>
+          <p class="text-gray-400 leading-relaxed">
+            Классический мужской барбершоп в Белой Церкви.<br>
+            Твой стиль — наша репутация.
+          </p>
+        </div>
+
+        <!-- Колонка 2 - Быстрые ссылки -->
+        <div>
+          <h3 class="text-[#d4af37] font-semibold mb-6">Навигация</h3>
+          <div class="flex flex-col gap-3 text-gray-400">
+            <a href="#about" class="hover:text-white transition-colors">О нас</a>
+            <a href="#masters" class="hover:text-white transition-colors">Мастера</a>
+            <a href="#services" class="hover:text-white transition-colors">Услуги</a>
+            <a href="#gallery" class="hover:text-white transition-colors">Галерея</a>
+            <a href="#contacts" class="hover:text-white transition-colors">Контакты</a>
+          </div>
+        </div>
+
+        <!-- Колонка 3 - Контакты -->
+        <div>
+          <h3 class="text-[#d4af37] font-semibold mb-6">Контакты</h3>
+          <div class="text-gray-400 space-y-3">
+            <p>ул. Ярослава Мудрого, 10</p>
+            <p>Белая Церковь</p>
+            <p class="pt-2">
+              <a href="tel:+380XXXXXXXXX" class="hover:text-[#d4af37] transition-colors">
+                +380 XX XXX XX XX
+              </a>
+            </p>
+            <div class="flex gap-5 pt-4">
+              <a href="https://t.me/artandrew1" target="_blank" class="text-2xl hover:text-[#229ED9] transition-colors">✈️</a>
+              <a href="https://instagram.com/sydorovclub" target="_blank" class="text-2xl hover:text-[#E1306C] transition-colors">📸</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Нижняя линия -->
+      <div class="border-t border-[#d4af37]/10 mt-16 pt-8 text-center text-sm text-gray-500">
+        <p>© 2026 SydorovClub • Барбершоп в Белой Церкви</p>
+        <p class="mt-2">Сделано с душой для настоящих мужчин ✂️</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
+
+
 
 
 
