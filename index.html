@@ -17,6 +17,9 @@
     .nav-link { transition: all 0.3s ease; }
     .nav-link:hover { color: #d4af37; transform: translateY(-2px); }
   </style>
+    <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body class="bg-[#0a0a0a] text-[#f5f5f5]">
 
@@ -81,7 +84,8 @@
   </section>
 
   <!-- Наша История -->
-  <section id="about" class="py-24 bg-[#121212]">
+  <section id="about" class="py-24 bg-[#121212]" data-aos="fade-up" data-aos-duration="1000">
+    ...
     <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="heading text-5xl font-bold mb-4">Наша История</h2>
@@ -94,49 +98,50 @@
     </div>
   </section>
 
-  <!-- Услуги -->
-  <section id="services" class="py-24 bg-[#0a0a0a]">
+  <!-- ====================== УСЛУГИ И ПРАЙС ====================== -->
+  <section id="services" class="py-24" data-aos="fade-up" data-aos-delay="150">
     <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="heading text-5xl font-bold mb-4">Услуги и Прайс</h2>
       </div>
+      
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all" data-aos="fade-up" data-aos-delay="200">
           <h3 class="text-2xl font-semibold">Мужская стрижка</h3>
           <p class="text-gray-400 mt-2 mb-6">Консультация, мытье, укладка</p>
           <p class="text-4xl font-bold text-[#d4af37]">800 ₴</p>
         </div>
-        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all" data-aos="fade-up" data-aos-delay="250">
           <h3 class="text-2xl font-semibold">Стрижка под машинку</h3>
           <p class="text-gray-400 mt-2 mb-6">Одной или двумя насадками</p>
           <p class="text-4xl font-bold text-[#d4af37]">400 ₴</p>
         </div>
-        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all" data-aos="fade-up" data-aos-delay="300">
           <h3 class="text-2xl font-semibold">Укладка и стайлинг</h3>
           <p class="text-gray-400 mt-2 mb-6">Особый случай</p>
           <p class="text-4xl font-bold text-[#d4af37]">200 ₴</p>
         </div>
-        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all" data-aos="fade-up" data-aos-delay="350">
           <h3 class="text-2xl font-semibold">Детская стрижка</h3>
           <p class="text-gray-400 mt-2 mb-6">До 12 лет</p>
           <p class="text-4xl font-bold text-[#d4af37]">600 ₴</p>
         </div>
-        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all" data-aos="fade-up" data-aos-delay="400">
           <h3 class="text-2xl font-semibold">Моделирование бороды</h3>
           <p class="text-gray-400 mt-2 mb-6">Форма, опасная бритва</p>
           <p class="text-4xl font-bold text-[#d4af37]">500 ₴</p>
         </div>
-        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all" data-aos="fade-up" data-aos-delay="450">
           <h3 class="text-2xl font-semibold">Королевское бритье</h3>
           <p class="text-gray-400 mt-2 mb-6">Классика бритья</p>
           <p class="text-4xl font-bold text-[#d4af37]">700 ₴</p>
         </div>
-        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all" data-aos="fade-up" data-aos-delay="500">
           <h3 class="text-2xl font-semibold">Камуфляж седины</h3>
           <p class="text-gray-400 mt-2 mb-6">Натуральный эффект</p>
           <p class="text-4xl font-bold text-[#d4af37]">600 ₴</p>
         </div>
-        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all">
+        <div class="bg-[#1a1a1a] p-8 rounded-3xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all" data-aos="fade-up" data-aos-delay="550">
           <h3 class="text-2xl font-semibold">Отец + Сын</h3>
           <p class="text-gray-400 mt-2 mb-6">Выгодный визит</p>
           <p class="text-4xl font-bold text-[#d4af37]">1200 ₴</p>
@@ -145,8 +150,8 @@
     </div>
   </section>
 
-    <!-- ====================== ГАЛЕРЕЯ РАБОТ ====================== -->
-  <section id="gallery" class="py-24 bg-[#0a0a0a]">
+      <!-- ====================== ГАЛЕРЕЯ РАБОТ ====================== -->
+  <section id="gallery" class="py-24 bg-[#0a0a0a]" data-aos="fade-up" data-aos-delay="250">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="heading text-5xl font-bold mb-4">Галерея работ</h2>
@@ -155,7 +160,7 @@
 
       <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
 
-        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900">
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900" data-aos="fade-up" data-aos-delay="300">
           <img src="./images/strizhka1.jpg" alt="Классическая стрижка" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
             <p class="text-white text-xl font-semibold">Классическая стрижка</p>
@@ -163,7 +168,7 @@
           </div>
         </div>
 
-        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900">
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900" data-aos="fade-up" data-aos-delay="400">
           <img src="./images/britje.jpg" alt="Королевское бритьё" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
             <p class="text-white text-xl font-semibold">Королевское бритьё</p>
@@ -171,7 +176,7 @@
           </div>
         </div>
 
-        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900">
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900" data-aos="fade-up" data-aos-delay="500">
           <img src="./images/boroda.jpg" alt="Моделирование бороды" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
             <p class="text-white text-xl font-semibold">Моделирование бороды</p>
@@ -179,7 +184,7 @@
           </div>
         </div>
 
-        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900">
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900" data-aos="fade-up" data-aos-delay="600">
           <img src="./images/fade.jpg" alt="Современный фейд" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
             <p class="text-white text-xl font-semibold">Современный фейд</p>
@@ -187,7 +192,7 @@
           </div>
         </div>
 
-        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900">
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900" data-aos="fade-up" data-aos-delay="700">
           <img src="./images/deti.jpg" alt="Детская стрижка" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
             <p class="text-white text-xl font-semibold">Детская стрижка</p>
@@ -195,7 +200,7 @@
           </div>
         </div>
 
-        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900">
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-gray-900" data-aos="fade-up" data-aos-delay="800">
           <img src="./images/otets-syn.jpg" alt="Отец и сын" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
             <p class="text-white text-xl font-semibold">Пакет Отец + Сын</p>
@@ -206,8 +211,10 @@
       </div>
     </div>
   </section>
-    <!-- ====================== НАШИ МАСТЕРА ====================== -->
-  <section id="masters" class="py-24 bg-[#121212]">
+    <!-- Мастера -->
+  <section id="masters" class="py-24 bg-[#121212]" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+    ...
+  </section>
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="heading text-5xl font-bold mb-4">Наши Мастера</h2>
@@ -217,7 +224,7 @@
       <div class="grid md:grid-cols-3 gap-8">
 
         <!-- Мастер 1 -->
-        <div class="group bg-[#1a1a1a] rounded-3xl overflow-hidden border border-transparent hover:border-[#d4af37] transition-all duration-300">
+       <div class="group ..." data-aos="fade-up" data-aos-delay="100">   <!-- для первой -->
           <div class="relative h-80 overflow-hidden">
             <img src="./images/barber1.jpg" 
                  alt="Иван Гамоюнов" 
@@ -232,7 +239,7 @@
         </div>
 
         <!-- Мастер 2 -->
-        <div class="group bg-[#1a1a1a] rounded-3xl overflow-hidden border border-transparent hover:border-[#d4af37] transition-all duration-300">
+     <div class="group ..." data-aos="fade-up" data-aos-delay="200">   <!-- для второй -->
           <div class="relative h-80 overflow-hidden">
             <img src="./images/barber2.jpg" 
                  alt="Александр Белов" 
@@ -247,7 +254,7 @@
         </div>
 
         <!-- Мастер 3 -->
-        <div class="group bg-[#1a1a1a] rounded-3xl overflow-hidden border border-transparent hover:border-[#d4af37] transition-all duration-300">
+        <div class="group ..." data-aos="fade-up" data-aos-delay="300">   <!-- для третьей -->
           <div class="relative h-80 overflow-hidden">
             <img src="./images/barber3.jpg" 
                  alt="Дмитрий Ахмедов" 
@@ -427,7 +434,7 @@
   </script>
       <!-- ====================== КОНТАКТЫ (финальная версия) ====================== -->
    <!-- ====================== КОНТАКТЫ (с красивыми иконками) ====================== -->
-  <section id="contacts" class="py-20 md:py-24 bg-black">
+  <section id="contacts" class="py-20 md:py-24 bg-black" data-aos="fade-up" data-aos-delay="400">
     <div class="max-w-6xl mx-auto px-5 md:px-6">
       <div class="text-center mb-16">
         <h2 class="heading text-4xl md:text-5xl font-bold mb-4">Контакты</h2>
@@ -529,12 +536,11 @@
     </div>
   </section>
   </section>
-    <!-- ====================== ФУТЕР ====================== -->
+       <!-- ====================== ФУТЕР ====================== -->
   <footer class="bg-black py-16 border-t border-[#d4af37]/20">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid md:grid-cols-3 gap-12">
         
-        <!-- Колонка 1 - Лого и описание -->
         <div>
           <div class="flex items-center gap-3 mb-6">
             <div class="w-10 h-10 bg-[#d4af37] text-black font-bold text-3xl flex items-center justify-center rounded-full">S</div>
@@ -546,7 +552,6 @@
           </p>
         </div>
 
-        <!-- Колонка 2 - Быстрые ссылки -->
         <div>
           <h3 class="text-[#d4af37] font-semibold mb-6">Навигация</h3>
           <div class="flex flex-col gap-3 text-gray-400">
@@ -558,7 +563,6 @@
           </div>
         </div>
 
-        <!-- Колонка 3 - Контакты -->
         <div>
           <h3 class="text-[#d4af37] font-semibold mb-6">Контакты</h3>
           <div class="text-gray-400 space-y-3">
@@ -577,13 +581,26 @@
         </div>
       </div>
 
-      <!-- Нижняя линия -->
       <div class="border-t border-[#d4af37]/10 mt-16 pt-8 text-center text-sm text-gray-500">
         <p>© 2026 SydorovClub • Барбершоп в Белой Церкви</p>
         <p class="mt-2">Сделано с душой для настоящих мужчин ✂️</p>
       </div>
     </div>
   </footer>
+
+  <!-- Инициализация AOS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      AOS.init({
+        duration: 900,
+        once: true,
+        offset: 80,
+        easing: 'ease-out-cubic'
+      });
+      console.log("✅ AOS успешно инициализирован");
+    });
+  </script>
+
 </body>
 </html>
 
