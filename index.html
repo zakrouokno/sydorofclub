@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -82,12 +80,10 @@
         <a href="#contacts" class="nav-link">Контакты</a>
       </div>
 
-      <!-- Кнопка Записаться + Гамбургер -->
-      <div class="flex items-center gap-4">
-        <a href="#booking" onclick="openBookingModal()" 
-           class="hidden sm:block bg-[#d4af37] hover:bg-amber-600 text-black font-semibold px-6 py-2.5 rounded-2xl transition-all text-sm">
-          Записаться
-        </a>
+      <button onclick="showBookingOptions()" 
+        class="hidden sm:block bg-[#d4af37] hover:bg-amber-600 text-black font-semibold px-6 py-2.5 rounded-2xl transition-all text-sm">
+  Записаться
+</button>
         
         <button id="mobile-menu-button" 
                 class="md:hidden text-3xl text-white focus:outline-none w-10 h-10 flex items-center justify-center">
@@ -105,10 +101,10 @@
         <a href="#gallery" class="nav-link py-2" onclick="closeMobileMenu()">Галерея</a>
         <a href="#contacts" class="nav-link py-2" onclick="closeMobileMenu()">Контакты</a>
         
-        <a href="#" onclick="openBookingModal(); closeMobileMenu()" 
-           class="bg-[#d4af37] text-black font-semibold py-4 text-center rounded-2xl mt-6">
-          Записаться на стрижку
-        </a>
+        <<button onclick="showBookingOptions(); closeMobileMenu()" 
+        class="bg-[#d4af37] text-black font-semibold py-4 text-center rounded-2xl mt-6 w-full">
+  Записаться
+</button>
       </div>
     </div>
   </nav>
@@ -137,14 +133,15 @@
         Традиции • Качество • Настоящий мужской уход
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
-        <a href="#booking" onclick="openBookingModal()" 
-           class="inline-block bg-[#d4af37] hover:bg-amber-600 text-black font-semibold text-xl px-12 py-6 rounded-2xl transition-all duration-300 shadow-2xl">
-          Записаться сейчас
-        </a>
+            <!-- Кнопки записи (адаптивные для телефона) -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <button onclick="showBookingOptions()" 
+                class="flex-1 sm:flex-none bg-[#d4af37] hover:bg-amber-600 text-black font-semibold text-lg md:text-xl px-10 py-5 md:py-6 rounded-2xl transition-all shadow-lg">
+          Записаться
+        </button>
         
         <a href="#about" 
-           class="inline-block border border-white/60 hover:border-white text-white font-medium text-xl px-10 py-6 rounded-2xl transition-all duration-300">
+           class="flex-1 sm:flex-none border border-white/60 hover:border-white text-white font-medium text-lg md:text-xl px-10 py-5 md:py-6 rounded-2xl transition-all">
           Узнать больше
         </a>
       </div>
@@ -788,6 +785,61 @@
       });
     });
   </script>
+  <!-- Модальное окно выбора способа записи (хорошо выглядит на телефоне) -->
+<div id="bookingOptionsModal" class="hidden fixed inset-0 bg-black/80 z-[110] flex items-end md:items-center justify-center">
+  <div class="bg-[#0a0a0a] text-white w-full md:max-w-md mx-4 md:mx-auto rounded-t-3xl md:rounded-3xl p-8 md:p-10">
+    <h3 class="text-2xl font-bold text-center mb-8">Как записаться?</h3>
+    
+    <div class="space-y-4">
+      <button onclick="chooseBookingMethod('site')" 
+              class="w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 rounded-2xl p-6 text-left transition-all">
+        <div class="flex items-center gap-4">
+          <span class="text-3xl">📝</span>
+          <div>
+            <p class="font-semibold text-lg">Через форму на сайте</p>
+            <p class="text-sm text-gray-400">Быстро заполнить данные</p>
+          </div>
+        </div>
+      </button>
+
+      <a href="https://t.me/sydorovclub_bot" target="_blank" 
+         onclick="closeBookingOptionsModal()"
+         class="w-full bg-[#229ED9] hover:bg-[#1a8ac4] rounded-2xl p-6 text-left transition-all block">
+        <div class="flex items-center gap-4">
+          <span class="text-3xl">📲</span>
+          <div>
+            <p class="font-semibold text-lg">Через Telegram-бот</p>
+            <p class="text-sm text-blue-200">Удобно в мессенджере</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <button onclick="closeBookingOptionsModal()" 
+            class="w-full mt-8 py-4 text-gray-400 hover:text-white transition-all text-lg">
+      Отмена
+    </button>
+  </div>
+</div>
+<script>
+  function showBookingOptions() {
+    document.getElementById('bookingOptionsModal').classList.remove('hidden');
+    document.getElementById('bookingOptionsModal').classList.add('flex');
+  }
+
+  function closeBookingOptionsModal() {
+    const modal = document.getElementById('bookingOptionsModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  function chooseBookingMethod(method) {
+    closeBookingOptionsModal();
+    if (method === 'site') {
+      openBookingModal();
+    }
+  }
+</script>
 </body>
 </html>
 
